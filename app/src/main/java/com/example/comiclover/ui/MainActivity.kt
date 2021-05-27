@@ -1,4 +1,4 @@
-package com.example.comiclover
+package com.example.comiclover.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,11 +8,13 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.comiclover.BuildConfig
 import com.example.comiclover.ui.theme.ComicLoverTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val key = BuildConfig.PRIVATE_KEY
         setContent {
             ComicLoverTheme {
                 // A surface container using the 'background' color from the theme

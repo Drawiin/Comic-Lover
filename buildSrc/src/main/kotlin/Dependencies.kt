@@ -1,6 +1,3 @@
-import org.gradle.kotlin.dsl.extra
-import org.gradle.kotlin.dsl.invoke
-
 object Sdk {
     const val minSdk = 23
     const val targetSdk = 30
