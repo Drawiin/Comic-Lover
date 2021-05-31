@@ -1,21 +1,21 @@
-package com.example.comiclover.network
+package com.example.comiclover.network.util
 
+import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import com.example.comiclover.network.connectivityManager
+import javax.inject.Inject
+import javax.inject.Singleton
 
-//@Singleton
-class NetworkHandler
-//@Inject constructor(@ApplicationContext private val context: Context) {
-constructor(private val context: Context) {
+@Singleton
+class NetworkHandler @Inject constructor(private val context: Application) {
     val isConnected: Boolean
         get() {
             val connectivityManager = context.connectivityManager
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
             val network = connectivityManager.activeNetwork ?: return false
-            val activeNetwork =
-                connectivityManager.getNetworkCapabilities(network) ?: return false
+            val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
 
             return when {
                 activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
