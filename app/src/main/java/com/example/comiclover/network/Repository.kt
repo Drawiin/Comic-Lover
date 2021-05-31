@@ -2,17 +2,7 @@ package com.example.comiclover.network
 
 class UserRepositoryImpl(
     private val networkHandler: NetworkHandler,
-    private val userApi: UseApi
+    private val todoApi: TodoApi
 ) {
-    suspend fun getUserKtor(userId: String): Todo? =
-        when (networkHandler.isConnected) {
-            true -> {
-                try {
-                    userApi.getUserKtor()
-                } catch (e: Exception) {
-                    null
-                }
-            }
-            else -> null
-        }
+    suspend fun getUserKtor(): Todo = todoApi.getTodo()
 }

@@ -14,7 +14,7 @@ import kotlinx.serialization.json.Json
 
 private const val TIME_OUT = 60_000
 
-private val ktorHttpClient = HttpClient(Android) {
+val ktorHttpClient = HttpClient(Android) {
     engine {
         connectTimeout = TIME_OUT
         socketTimeout = TIME_OUT
@@ -27,6 +27,7 @@ private val ktorHttpClient = HttpClient(Android) {
             ignoreUnknownKeys = true
 
         })
+
 
     }
 

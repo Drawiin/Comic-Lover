@@ -13,6 +13,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.0-beta03")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
+        // Fixme Hilt conflict with gradle:7.0.0-beta03 new names change when is corrected in release version
         classpath("com.google.dagger:hilt-android-gradle-plugin:${"HEAD-SNAPSHOT"}")
         classpath("org.jetbrains.kotlin:kotlin-serialization:${Versions.kotlin}")
     }
