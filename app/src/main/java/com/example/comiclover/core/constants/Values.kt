@@ -1,3 +1,3 @@
 package com.example.comiclover.core.constants
 
-private const val TIME_OUT = 60_000
+const val NETWORK_TIME_OUT = 60_000

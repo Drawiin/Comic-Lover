@@ -1,8 +1,10 @@
 package com.example.comiclover.di
 
-import android.net.sip.SipErrorCode.TIME_OUT
 import android.util.Log
 import com.example.comiclover.BuildConfig
+import com.example.comiclover.core.constants.NETWORK_TIME_OUT
+import com.example.comiclover.core.constants.PRIVATE_KEY_NAME
+import com.example.comiclover.core.constants.PUBLIC_KEY_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +18,10 @@ import io.ktor.client.features.logging.*
 import io.ktor.client.features.observer.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -24,8 +29,18 @@ import javax.inject.Singleton
 object NetworkModule {
 
     @Singleton
+    @Named(PRIVATE_KEY_NAME)
     @Provides
-    fun providesJsonSerializer() = KotlinxSerializer(Json {
+    fun providesPrivateKey(): String = BuildConfig.PRIVATE_KEY
+
+    @Singleton
+    @Named(PUBLIC_KEY_NAME)
+    @Provides
+    fun providesPublicKey(): String = BuildConfig.PUBLIC_KEY
+
+    @Singleton
+    @Provides
+    fun providesJsonSerializer(): JsonSerializer = KotlinxSerializer(Json {
         prettyPrint = true
         isLenient = true
         ignoreUnknownKeys = true
@@ -41,10 +56,20 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun providesHttpClient(jsonSerializer: JsonSerializer, appLogger: Logger) = HttpClient(Android) {
+    fun providesHttpClient(
+        jsonSerializer: JsonSerializer,
+        appLogger: Logger
+    ): HttpClient = HttpClient(Android) {
+        defaultRequest {
+            host = "gateway.marvel.com:443/v1/public"
+            url {
+                protocol = URLProtocol.HTTPS
+            }
+        }
+
         engine {
-            connectTimeout = TIME_OUT
-            socketTimeout = TIME_OUT
+            connectTimeout = NETWORK_TIME_OUT
+            socketTimeout = NETWORK_TIME_OUT
         }
 
         install(JsonFeature) {
