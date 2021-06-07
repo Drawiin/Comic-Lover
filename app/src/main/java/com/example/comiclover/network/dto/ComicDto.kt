@@ -1,6 +1,7 @@
 package com.example.comiclover.network.dto
 
 
+import com.example.comiclover.domain.model.Comic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -18,4 +19,13 @@ data class ComicDto(
     val thumbnailDto: ThumbnailDto?,
     @SerialName("title")
     val title: String?
+)
+
+fun ComicDto.toDomain(): Comic = Comic(
+    description = description,
+    id = id,
+    pageCount = pageCount,
+    resourceURI = resourceURI,
+    thumbnail = thumbnailDto?.toDomain(),
+    title = title
 )

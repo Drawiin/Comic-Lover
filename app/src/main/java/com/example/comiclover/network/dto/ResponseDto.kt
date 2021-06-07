@@ -9,5 +9,5 @@ data class ResponseDto(
     @SerialName("code")
     val code: Int?,
     @SerialName("data")
-    val dataDto: DataDto?
+    val data: DataDto?
 )

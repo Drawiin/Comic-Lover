@@ -17,7 +17,9 @@ import io.ktor.client.features.json.serializer.*
 import io.ktor.client.features.logging.*
 import io.ktor.client.features.observer.*
 import io.ktor.client.request.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -46,11 +48,30 @@ object NetworkModule {
         ignoreUnknownKeys = true
     })
 
+    @ExperimentalSerializationApi
     @Singleton
     @Provides
     fun providesLogger() = object : Logger {
+        val format = Json {
+            prettyPrint = true
+            isLenient = true
+            prettyPrintIndent = " "
+        }
+
         override fun log(message: String) {
-            Log.v("App logger =>", message)
+            if (with(message) { startsWith("{") or startsWith("[") })
+                try {
+                    val json = format.parseToJsonElement(message)
+                    val string = format.encodeToString(json)
+                    if (string.length >= 4000){
+                        Log.v("App logger =>", "Json to large use print instead")
+                    }
+                    Log.v("App logger =>", format.encodeToString(json))
+                } catch (m: Exception) {
+                    Log.v("App logger =>", m.message.toString())
+                }
+            else
+                Log.v("App logger =>", message)
         }
     }
 
@@ -60,13 +81,6 @@ object NetworkModule {
         jsonSerializer: JsonSerializer,
         appLogger: Logger
     ): HttpClient = HttpClient(Android) {
-        defaultRequest {
-            host = "gateway.marvel.com:443/v1/public"
-            url {
-                protocol = URLProtocol.HTTPS
-            }
-        }
-
         engine {
             connectTimeout = NETWORK_TIME_OUT
             socketTimeout = NETWORK_TIME_OUT
@@ -89,6 +103,10 @@ object NetworkModule {
 
         install(DefaultRequest) {
             header(HttpHeaders.ContentType, ContentType.Application.Json)
+            host = "gateway.marvel.com:443/v1/public"
+            url {
+                protocol = URLProtocol.HTTPS
+            }
         }
     }
 }

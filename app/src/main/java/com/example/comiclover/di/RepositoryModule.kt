@@ -1,6 +1,6 @@
 package com.example.comiclover.di
 
-import com.example.comiclover.domain.boundaries.ComicRepository
+import com.example.comiclover.domain.repository.ComicRepository
 import com.example.comiclover.repository.DefaultComicRepository
 import dagger.Binds
 import dagger.Module
