@@ -57,7 +57,7 @@ android {
 
 dependencies {
     implementation("com.google.dagger:hilt-android:${Versions.hilt}")
-    kapt("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
+    kapt("com.google.dagger:hilt-compiler:${Versions.hilt}")
 
     implementation("io.ktor:ktor-client-android:${Versions.ktor}")
     implementation("io.ktor:ktor-client-serialization:${Versions.ktor}")
