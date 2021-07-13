@@ -1,30 +1,34 @@
-package com.example.comiclover.ui.theme
+package com.example.comiclover.core.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = PrimaryColor,
+    primaryVariant = PrimaryDarkColor,
+    secondary = SecondaryColor,
+    background = Color.Black,
+    surface = Color.White,
+    onPrimary = PrimaryTextColor,
+    onSecondary = SecondaryTextColor,
+    onBackground = PrimaryTextColor,
+    onSurface = PrimaryTextColor,
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
-
-    /* Other default colors to override
-    background = Color.White,
+    primary = PrimaryColor,
+    primaryVariant = PrimaryDarkColor,
+    secondary = SecondaryColor,
+    background = Color.Black,
     surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
+    onPrimary = PrimaryTextColor,
+    onSecondary = SecondaryTextColor,
+    onBackground = PrimaryTextColor,
+    onSurface = PrimaryTextColor,
 )
 
 @Composable

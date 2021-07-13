@@ -1,4 +1,4 @@
-package com.example.comiclover.ui
+package com.example.comiclover.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

@@ -64,6 +64,12 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}")
     implementation("io.ktor:ktor-client-logging-jvm:${Versions.ktor}")
 
+    implementation("androidx.navigation:navigation-compose:${Versions.navigationCompose}")
+    implementation("androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}")
+
+    implementation("com.google.accompanist:accompanist-coil:${Versions.coil}")
+    implementation("com.google.accompanist:accompanist-insets:${Versions.coil}")
+
     implementation("androidx.core:core-ktx:${Versions.androidx}")
     implementation("androidx.appcompat:appcompat:${Versions.appCompat}")
     implementation("com.google.android.material:material:${Versions.material}")
