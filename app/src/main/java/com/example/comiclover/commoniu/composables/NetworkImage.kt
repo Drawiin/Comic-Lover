@@ -1,4 +1,4 @@
-package com.example.comiclover.core.composables.network_image
+package com.example.comiclover.commoniu.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

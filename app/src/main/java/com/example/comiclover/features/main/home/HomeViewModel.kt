@@ -1,4 +1,4 @@
-package com.example.comiclover.features.home
+package com.example.comiclover.features.main.home
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel

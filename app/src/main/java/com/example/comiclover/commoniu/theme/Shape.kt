@@ -1,4 +1,4 @@
-package com.example.comiclover.core.theme
+package com.example.comiclover.commoniu.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

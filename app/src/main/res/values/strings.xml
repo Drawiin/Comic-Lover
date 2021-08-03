@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Comic Lover</string>
+    <string name="description_marvel_logo">Logo Marvel</string>
+    <string name="description_open_menu">Abrir menu</string>
+    <string name="description_start_search">Buscar</string>
+    <string name="title_welcome_to_marvel_heroes">Bem vindo ao Marvel Heroes</string>
+    <string name="title_choose_your_character">Escolha o seu personagem</string>
+    <string name="description_alien">Selecionar aliens</string>
+    <string name="description_hero">Categoria heroi</string>
+    <string name="description_villain">Vilão</string>
+    <string name="description_antihero">Anti Heroi</string>
+    <string name="description_human">Humano</string>
 </resources>

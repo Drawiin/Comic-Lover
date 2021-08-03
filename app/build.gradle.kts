@@ -83,4 +83,5 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:${Versions.junit}")
     androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.espresso}")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Versions.compose}")
+    implementation(kotlin("reflect"))
 }

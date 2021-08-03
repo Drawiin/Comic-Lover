@@ -5,10 +5,10 @@ object Sdk {
 }
 
 object Versions {
-    const val gradle = "7.0.0-beta05"
+    const val gradle = "7.0.0"
     const val kotlin = "1.5.10"
     const val hilt = "2.37"
-    const val compose = "1.0.0-rc01"
+    const val compose = "1.0.0"
     const val ktor = "1.5.0"
     const val kotlinSerialization = "1.0.1"
     const val androidx = "1.5.0"

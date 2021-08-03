@@ -1,34 +1,27 @@
-package com.example.comiclover.core.theme
+package com.example.comiclover.commoniu.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColors(
-    primary = PrimaryColor,
-    primaryVariant = PrimaryDarkColor,
-    secondary = SecondaryColor,
-    background = Color.Black,
-    surface = Color.White,
-    onPrimary = PrimaryTextColor,
-    onSecondary = SecondaryTextColor,
-    onBackground = PrimaryTextColor,
-    onSurface = PrimaryTextColor,
+    primary = PrimaryRed,
+    background = PrimarySilver,
+    surface = PrimarySilver,
+    onPrimary = PrimaryDark,
+    onBackground = PrimaryDark,
+    onSurface = PrimaryDark,
 )
 
 private val LightColorPalette = lightColors(
-    primary = PrimaryColor,
-    primaryVariant = PrimaryDarkColor,
-    secondary = SecondaryColor,
-    background = Color.Black,
-    surface = Color.White,
-    onPrimary = PrimaryTextColor,
-    onSecondary = SecondaryTextColor,
-    onBackground = PrimaryTextColor,
-    onSurface = PrimaryTextColor,
+    primary = PrimaryRed,
+    background = PrimarySilver,
+    surface = PrimarySilver,
+    onPrimary = PrimaryDark,
+    onBackground = PrimaryDark,
+    onSurface = PrimaryDark,
 )
 
 @Composable
