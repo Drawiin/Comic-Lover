@@ -16,3 +16,11 @@ object Size {
 object Spacing {
     val default = 32.dp
 }
+
+object Height {
+    val characterHeight = 230.dp
+}
+
+object Width {
+    val characterWidth = 140.dp
+}

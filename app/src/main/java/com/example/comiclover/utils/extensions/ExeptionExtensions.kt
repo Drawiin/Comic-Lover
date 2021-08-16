@@ -1,4 +1,4 @@
-package com.example.comiclover.core.extensions
+package com.example.comiclover.utils.extensions
 
 import com.example.comiclover.core.error.Failure
 import io.ktor.client.features.*

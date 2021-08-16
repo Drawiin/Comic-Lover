@@ -1,8 +1,6 @@
 package com.example.comiclover.network.util
 
 import android.app.Application
-import android.content.Context
-import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import com.example.comiclover.network.connectivityManager
 import javax.inject.Inject

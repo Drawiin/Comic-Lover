@@ -67,8 +67,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:${Versions.navigationCompose}")
     implementation("androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}")
 
-    implementation("com.google.accompanist:accompanist-coil:${Versions.coil}")
-    implementation("com.google.accompanist:accompanist-insets:${Versions.coil}")
+    implementation("io.coil-kt:coil-compose:${Versions.coil}")
 
     implementation("androidx.core:core-ktx:${Versions.androidx}")
     implementation("androidx.appcompat:appcompat:${Versions.appCompat}")

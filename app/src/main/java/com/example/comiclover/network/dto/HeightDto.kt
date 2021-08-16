@@ -5,9 +5,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ResponseDto(
-    @SerialName("code")
-    val code: Int?,
-    @SerialName("data")
-    val data: DataDto?
+data class HeightDto(
+    @SerialName("unity")
+    val unity: String,
+    @SerialName("value")
+    val value: Double
 )

@@ -47,5 +47,4 @@ fun HomeScreen(viewModel: HomeViewModel) {
             FilterSelection(categories = categories)
         }
     }
-
 }

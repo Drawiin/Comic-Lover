@@ -34,5 +34,10 @@ val Typography = Typography(
     h6 = TextStyle(
         fontWeight = FontWeight.SemiBold,
         fontSize = 14.sp
+    ),
+    body2 = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 10.sp,
+        color = PrimaryBlack
     )
 )

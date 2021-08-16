@@ -20,5 +20,5 @@ object Versions {
     const val espresso = "3.3.0"
     const val navigationCompose = "2.4.0-alpha04"
     const val hiltNavigationCompose = "1.0.0-alpha03"
-    const val coil= "0.11.0"
+    const val coil= "1.3.2"
 }

@@ -11,22 +11,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import com.example.comiclover.R
-import com.google.accompanist.coil.rememberCoilPainter
-import com.google.accompanist.imageloading.ImageLoadState
+import coil.annotation.ExperimentalCoilApi
+import coil.compose.ImagePainter
+import coil.compose.rememberImagePainter
 
+@ExperimentalCoilApi
 @Composable
 fun NetworkImage(
     url: String,
     contentDescription: String?,
     modifier: Modifier = Modifier,
     contentScale: ContentScale = ContentScale.Crop,
-    placeholderColor: Color? = MaterialTheme.colors.primarySurface
+    placeholderColor: Color? = MaterialTheme.colors.surface
 ) {
     Box(modifier) {
-        val painter = rememberCoilPainter(
-            request = url,
-            previewPlaceholder = R.drawable.ic_launcher_foreground,
+        val painter = rememberImagePainter(
+            data = url,
+            builder = {
+                crossfade(true)
+            }
         )
 
         Image(
@@ -36,7 +39,7 @@ fun NetworkImage(
             modifier = Modifier.fillMaxSize()
         )
 
-        if (painter.loadState is ImageLoadState.Loading && placeholderColor != null) {
+        if (painter.state is ImagePainter.State.Loading && placeholderColor != null) {
             Spacer(
                 modifier = Modifier
                     .matchParentSize()
