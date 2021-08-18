@@ -15,6 +15,7 @@ object Size {
 
 object Spacing {
     val default = 32.dp
+    val medium = 16.dp
 }
 
 object Height {

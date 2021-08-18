@@ -23,7 +23,7 @@ fun FilterSelection(categories: List<FilterCategory>){
 
 }
 
-sealed class FilterCategory(
+sealed class  FilterCategory(
     @DrawableRes val icon: Int,
     @StringRes val description: Int,
     val backgroundGradient: Brush,

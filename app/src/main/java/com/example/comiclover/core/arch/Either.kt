@@ -57,14 +57,14 @@ sealed class Either<out L, out R> {
     fun <R> right(b: R) = Right(b)
 
     /**
-     * Applies fnL if this is a Left or fnR if this is a Right.
+     * Applies onLeft if this is a Left or onRight if this is a Right.
      * @see Left
      * @see Right
      */
-    fun fold(fnL: (L) -> Any, fnR: (R) -> Any): Any =
+    fun fold(onLeft: (L) -> Any, onRight: (R) -> Any): Any =
         when (this) {
-            is Left -> fnL(a)
-            is Right -> fnR(b)
+            is Left -> onLeft(a)
+            is Right -> onRight(b)
         }
 }
 

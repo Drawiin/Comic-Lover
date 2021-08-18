@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.comiclover.commoniu.theme.*
 import com.example.comiclover.core.constants.BASE_RESOURCE_URL
-import com.example.comiclover.network.dto.CharacterDto
+import com.example.comiclover.features.main.data.dto.CharacterDto
 
 @Composable
 fun CharacterCard(
@@ -20,7 +20,7 @@ fun CharacterCard(
 ) {
     Box(modifier) {
         NetworkImage(
-            url = characterDto.imagePath ?: "",
+            url = characterDto.imagePath?.replace("./", BASE_RESOURCE_URL) ?: "",
             contentDescription = characterDto.name,
             modifier = Modifier.fillMaxSize()
         )

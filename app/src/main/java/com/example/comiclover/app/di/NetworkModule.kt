@@ -1,10 +1,10 @@
-package com.example.comiclover.di
+package com.example.comiclover.app.di
 
 import android.util.Log
 import com.example.comiclover.BuildConfig
+import com.example.comiclover.core.constants.APP_LOGGER_NAME
 import com.example.comiclover.core.constants.NETWORK_TIME_OUT
-import com.example.comiclover.core.constants.PRIVATE_KEY_NAME
-import com.example.comiclover.core.constants.PUBLIC_KEY_NAME
+import com.example.comiclover.utils.extensions.isValidJson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,29 +17,15 @@ import io.ktor.client.features.json.serializer.*
 import io.ktor.client.features.logging.*
 import io.ktor.client.features.observer.*
 import io.ktor.client.request.*
-import io.ktor.client.statement.*
 import io.ktor.http.*
 import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-
-    @Singleton
-    @Named(PRIVATE_KEY_NAME)
-    @Provides
-    fun providesPrivateKey(): String = BuildConfig.PRIVATE_KEY
-
-    @Singleton
-    @Named(PUBLIC_KEY_NAME)
-    @Provides
-    fun providesPublicKey(): String = BuildConfig.PUBLIC_KEY
-
     @Singleton
     @Provides
     fun providesJsonSerializer(): JsonSerializer = KotlinxSerializer(Json {
@@ -59,19 +45,19 @@ object NetworkModule {
         }
 
         override fun log(message: String) {
-            if (with(message) { startsWith("{") or startsWith("[") })
+            val maxAndroidLoggerLength = 4000
+            if (message.isValidJson())
                 try {
                     val json = format.parseToJsonElement(message)
                     val string = format.encodeToString(json)
-                    if (string.length >= 4000){
-                        Log.v("App logger =>", "Json to large use print instead")
-                    }
-                    Log.v("App logger =>", format.encodeToString(json))
-                } catch (m: Exception) {
-                    Log.v("App logger =>", m.message.toString())
+                    Log.v(APP_LOGGER_NAME, string)
+                    if (string.length >= maxAndroidLoggerLength)
+                        Log.v(APP_LOGGER_NAME, "Json to large use print instead")
+                } catch (e: Exception) {
+                    Log.v(APP_LOGGER_NAME, e.message.toString())
                 }
             else
-                Log.v("App logger =>", message)
+                Log.v(APP_LOGGER_NAME, message)
         }
     }
 
@@ -87,6 +73,7 @@ object NetworkModule {
         }
 
         install(JsonFeature) {
+            acceptContentTypes = listOf(ContentType.Application.Json, ContentType.Text.Plain)
             serializer = jsonSerializer
         }
 
@@ -103,7 +90,7 @@ object NetworkModule {
 
         install(DefaultRequest) {
             header(HttpHeaders.ContentType, ContentType.Application.Json)
-            host = "gateway.marvel.com:443/v1/public"
+            host = "raw.githubusercontent.com/Lorenalgm/marvel-heroes/master"
             url {
                 protocol = URLProtocol.HTTPS
             }

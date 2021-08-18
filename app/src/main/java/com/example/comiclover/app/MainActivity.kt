@@ -7,8 +7,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.comiclover.features.main.home.HomeScreen
-import com.example.comiclover.features.main.home.HomeViewModel
+import com.example.comiclover.features.main.ui.home.HomeScreen
+import com.example.comiclover.features.main.ui.home.HomeViewModel
 import com.example.comiclover.commoniu.theme.ComicLoverTheme
 import dagger.hilt.android.AndroidEntryPoint
 
