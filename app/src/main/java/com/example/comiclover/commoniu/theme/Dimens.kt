@@ -6,10 +6,12 @@ object Padding {
     val button = 12.dp
     val defaultHorizontal = 24.dp
     val defaultVertical = 20.dp
+    val topSafe = 40.dp
 }
 
 object Size {
     val iconLarge = 32.dp
+    val iconNormal = 24.dp
     val button = 56.dp
 }
 

@@ -34,9 +34,16 @@ val GradientPink = Brush.verticalGradient(
         Color(0xFFFF758C )
     )
 )
-val GradientBlack = Brush.verticalGradient(
+val GradientDark = Brush.verticalGradient(
     colors = listOf(
         Color(0x00000000),
         Color(0xC0000000)
+    )
+)
+
+val GradientBlack = Brush.verticalGradient(
+    colors = listOf(
+        Color(0x00000000),
+        Color(0xFF000000)
     )
 )

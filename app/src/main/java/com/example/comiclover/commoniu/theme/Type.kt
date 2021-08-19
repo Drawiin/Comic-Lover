@@ -39,5 +39,10 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 10.sp,
         color = PrimaryBlack
+    ),
+    caption = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 12.sp,
+        color = PrimaryBlack
     )
 )

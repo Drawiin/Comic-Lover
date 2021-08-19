@@ -26,7 +26,7 @@ fun CharacterCard(
         )
         Box(
             modifier = Modifier
-                .background(GradientBlack)
+                .background(GradientDark)
                 .fillMaxSize()
         )
 
@@ -62,7 +62,7 @@ fun PreviewCharacterCard() {
                     .clip(MaterialTheme.shapes.large),
                 characterDto = CharacterDto(
                     name = "Pantera Negra",
-                    imagePath = "./chars/black-panther.png".replace("./", BASE_RESOURCE_URL),
+                    imagePath = "./chars/black-panther.png",
                     alterEgo = "T'Challa"
                 )
             )

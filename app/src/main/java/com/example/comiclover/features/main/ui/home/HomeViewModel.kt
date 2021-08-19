@@ -16,30 +16,30 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val repository: MarvelRepository
 ) : ViewModel() {
-    private val _state = MutableStateFlow<HomeState>(HomeState.Nothing)
-    val state: StateFlow<HomeState> = _state
+    private val _charactersState = MutableStateFlow<CharactersState>(CharactersState.Nothing)
+    val charactersState: StateFlow<CharactersState> = _charactersState
 
     init {
         loadAllCharacters()
     }
 
-    private fun setState(fn: () -> HomeState) {
-        _state.value = fn()
+    private fun setState(fn: () -> CharactersState) {
+        _charactersState.value = fn()
     }
 
     private fun loadAllCharacters() {
-        setState { HomeState.Loading }
+        setState { CharactersState.Loading }
         viewModelScope.launch {
             repository.getAllCharacters()
-                .onSuccess { setState { HomeState.Success(it) } }
-                .onFailure { setState { HomeState.Error(it.toString()) } }
+                .onSuccess { setState { CharactersState.Success(it) } }
+                .onFailure { setState { CharactersState.Error(it.toString()) } }
         }
     }
 }
 
-sealed class HomeState {
-    object Nothing : HomeState()
-    object Loading : HomeState()
-    data class Success(val data: AllCharactersDto) : HomeState()
-    data class Error(val message: String) : HomeState()
+sealed class CharactersState {
+    object Nothing : CharactersState()
+    object Loading : CharactersState()
+    data class Success(val data: AllCharactersDto) : CharactersState()
+    data class Error(val message: String) : CharactersState()
 }

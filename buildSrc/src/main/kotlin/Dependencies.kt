@@ -21,4 +21,5 @@ object Versions {
     const val navigationCompose = "2.4.0-alpha04"
     const val hiltNavigationCompose = "1.0.0-alpha03"
     const val coil= "1.3.2"
+    const val systemUiController = "0.16.1"
 }

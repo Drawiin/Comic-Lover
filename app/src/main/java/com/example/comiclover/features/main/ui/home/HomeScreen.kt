@@ -1,10 +1,6 @@
 package com.example.comiclover.features.main.ui.home
 
-import androidx.compose.foundation.gestures.scrollable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.CircularProgressIndicator
@@ -30,7 +26,7 @@ import com.example.comiclover.features.main.data.dto.AllCharactersDto
 fun HomeScreen(viewModel: HomeViewModel) {
     val categories = FilterCategory::class.nestedClasses
         .map { it.objectInstance as FilterCategory }
-    val state: HomeState by viewModel.state.collectAsState()
+    val charactersState: CharactersState by viewModel.charactersState.collectAsState()
 
     Scaffold(
         topBar = {
@@ -57,20 +53,21 @@ fun HomeScreen(viewModel: HomeViewModel) {
                 FilterSelection(categories = categories)
 
             }
-            CharactersBody(state = state)
+            CharactersBody(state = charactersState)
         }
 
     }
 }
 
 @Composable
-fun CharactersBody(state: HomeState) {
+fun CharactersBody(state: CharactersState) {
     when (state) {
-        is HomeState.Error -> Text(text = "Woooops")
-        is HomeState.Loading -> CircularProgressIndicator()
-        is HomeState.Success -> CharactersCategories(state.data)
-        is HomeState.Nothing -> {
+        is CharactersState.Error -> Text(text = "Woooops")
+        is CharactersState.Loading -> Column(Modifier.fillMaxSize()){
+            CircularProgressIndicator()
         }
+        is CharactersState.Success -> CharactersCategories(state.data)
+        is CharactersState.Nothing -> {}
     }
 }
 

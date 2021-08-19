@@ -56,6 +56,7 @@ android {
 }
 
 dependencies {
+
     implementation("com.google.dagger:hilt-android:${Versions.hilt}")
     kapt("com.google.dagger:hilt-compiler:${Versions.hilt}")
 
@@ -63,6 +64,8 @@ dependencies {
     implementation("io.ktor:ktor-client-serialization:${Versions.ktor}")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}")
     implementation("io.ktor:ktor-client-logging-jvm:${Versions.ktor}")
+
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:${Versions.systemUiController}")
 
     implementation("androidx.navigation:navigation-compose:${Versions.navigationCompose}")
     implementation("androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}")
