@@ -1,9 +1,6 @@
 package com.example.comiclover.app
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.view.WindowCompat
@@ -11,14 +8,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.comiclover.features.main.ui.home.HomeScreen
-import com.example.comiclover.features.main.ui.home.HomeViewModel
 import com.example.comiclover.commoniu.theme.ComicLoverTheme
-import com.example.comiclover.features.main.data.dto.CharacterDto
-import com.example.comiclover.features.main.data.dto.CharacteristicsDto
-import com.example.comiclover.features.main.data.dto.HeightDto
-import com.example.comiclover.features.main.data.dto.WeightDto
+import com.example.comiclover.features.main.data.dto.*
 import com.example.comiclover.features.main.ui.character.CharacterScreen
+import com.example.comiclover.features.main.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -54,7 +47,16 @@ class MainActivity : ComponentActivity() {
                                         unity = "ton",
                                         value = 380
                                     )
+                                ),
+                                biography = "O Pantera Negra é o título cerimonial atribuído ao chefe da Tribo Pantera da avançada nação africana de Wakanda. Além de governar o país, ele também é chefe de suas várias tribos (coletivamente conhecida como Wakandas). O uniforme do Pantera é um símbolo oficial (chefe de estado) e é usado mesmo durante missões diplomáticas. O Pantera é um título hereditário, mas ainda é preciso ganhar um desafio. No passado distante, um enorme meteorito maciço composto de vibranium - elemento que absorve o som, entre outras propriedades especiais - caiu em Wakanda, e é desenterrado uma geração antes dos eventos do presente.",
+                                abilities = AbilitiesDto(
+                                    velocity = 70,
+                                    intelligence = 40,
+                                    force = 90,
+                                    endurance = 10,
+                                    agility = 100
                                 )
+
                             )
                         )
                     }

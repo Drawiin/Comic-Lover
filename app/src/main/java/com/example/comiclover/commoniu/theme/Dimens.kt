@@ -7,6 +7,7 @@ object Padding {
     val defaultHorizontal = 24.dp
     val defaultVertical = 20.dp
     val topSafe = 40.dp
+    val bottomSafe = 70.dp
 }
 
 object Size {
