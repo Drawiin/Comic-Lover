@@ -55,8 +55,12 @@ class MainActivity : ComponentActivity() {
                                     force = 90,
                                     endurance = 10,
                                     agility = 100
+                                ), movies = listOf(
+                                    "./movies/captain-america-3.jpg",
+                                    "./movies/black-panther.jpg",
+                                    "./movies/avengers-3.jpg",
+                                    "./movies/avengers-4.jpg"
                                 )
-
                             )
                         )
                     }

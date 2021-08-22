@@ -4,6 +4,7 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ProgressIndicatorDefaults
@@ -12,28 +13,31 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.comiclover.commoniu.theme.Padding
 import com.example.comiclover.commoniu.theme.PrimaryWhite
+import com.example.comiclover.commoniu.theme.Spacing
 import com.example.comiclover.features.main.data.dto.AbilitiesDto
 
 @Composable
 fun Abilities(modifier: Modifier = Modifier, abilities: AbilitiesDto) {
     Column(modifier) {
-        AbilitiesProgress(progress = abilities.agility, title ="Força" )
-        AbilitiesProgress(progress = abilities.intelligence, title ="Inteligência" )
-        AbilitiesProgress(progress = abilities.agility, title ="Agilidade" )
-        AbilitiesProgress(progress = abilities.endurance, title ="Resistência" )
-        AbilitiesProgress(progress = abilities.velocity, title ="Velocidade" )
+        AbilitiesProgress(progress = abilities.agility, title = "Força")
+        AbilitiesProgress(progress = abilities.intelligence, title = "Inteligência")
+        AbilitiesProgress(progress = abilities.agility, title = "Agilidade")
+        AbilitiesProgress(progress = abilities.endurance, title = "Resistência")
+        AbilitiesProgress(progress = abilities.velocity, title = "Velocidade")
     }
 }
 
 @Composable
 fun AbilitiesProgress(progress: Int, title: String) {
     val animatedProgress by animateFloatAsState(
-        targetValue = progress.toFloat(),
+        targetValue = (progress / 100f),
         animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec
     )
-    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+    Row(Modifier.fillMaxWidth().padding(bottom = Padding.defaultHorizontal), verticalAlignment = Alignment.CenterVertically) {
         Text(
             text = title,
             style = MaterialTheme.typography.caption.copy(color = PrimaryWhite),
@@ -41,7 +45,9 @@ fun AbilitiesProgress(progress: Int, title: String) {
         )
         LinearProgressIndicator(
             progress = animatedProgress,
-            modifier = Modifier.weight(7f),
+            modifier = Modifier
+                .weight(7f)
+                .clip(MaterialTheme.shapes.large),
             color = PrimaryWhite,
             backgroundColor = PrimaryWhite.copy(alpha = 0.25f)
         )
