@@ -31,7 +31,8 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun CharacterScreen(
-    characterDto: CharacterDto
+    characterDto: CharacterDto,
+    onBack: () -> Unit
 ) {
     val systemUiController = rememberSystemUiController()
     SideEffect {
@@ -65,7 +66,7 @@ fun CharacterScreen(
                     .background(GradientBlack)
                     .fillMaxSize()
             )
-            CharacterScreenBody(characterDto)
+            CharacterScreenBody(characterDto, onBack)
         }
         characterDto.biography?.let {
             Text(
@@ -120,7 +121,7 @@ fun CharacterScreen(
 }
 
 @Composable
-fun CharacterScreenBody(characterDto: CharacterDto) {
+fun CharacterScreenBody(characterDto: CharacterDto, onBack: () -> Unit) {
     Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.SpaceBetween) {
         TransparentAppBar(
             Modifier
@@ -129,7 +130,7 @@ fun CharacterScreenBody(characterDto: CharacterDto) {
                 .padding(top = Padding.topSafe)
                 .padding(horizontal = Padding.defaultHorizontal, vertical = Padding.defaultVertical)
 
-        ) {}
+        ) {onBack()}
         Column(
             Modifier.padding(
                 horizontal = Padding.defaultVertical
@@ -152,32 +153,5 @@ fun CharacterScreenBody(characterDto: CharacterDto) {
                 )
             }
         }
-    }
-}
-
-@Preview
-@Composable
-fun PreviewCharacterScreen() {
-    ComicLoverTheme {
-        CharacterScreen(
-            characterDto = CharacterDto(
-                name = "Pantera Negra",
-                imagePath = "./chars/black-panther.png",
-                alterEgo = "T'Challa",
-                characteristics = CharacteristicsDto(
-                    universe = "Terra 69",
-                    birth = "90 anos",
-                    height = HeightDto(
-                        unity = "km",
-                        value = 300.0
-                    ),
-                    weight = WeightDto(
-                        unity = "ton",
-                        value = 380
-                    )
-                ),
-                biography = "O Pantera Negra é o título cerimonial atribuído ao chefe da Tribo Pantera da avançada nação africana de Wakanda. Além de governar o país, ele também é chefe de suas várias tribos (coletivamente conhecida como Wakandas). O uniforme do Pantera é um símbolo oficial (chefe de estado) e é usado mesmo durante missões diplomáticas. O Pantera é um título hereditário, mas ainda é preciso ganhar um desafio. No passado distante, um enorme meteorito maciço composto de vibranium - elemento que absorve o som, entre outras propriedades especiais - caiu em Wakanda, e é desenterrado uma geração antes dos eventos do presente."
-            )
-        )
     }
 }

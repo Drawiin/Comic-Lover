@@ -1,6 +1,7 @@
 package com.example.comiclover.commoniu.composables
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -16,9 +17,10 @@ import com.example.comiclover.features.main.data.dto.CharacterDto
 @Composable
 fun CharacterCard(
     modifier: Modifier = Modifier,
-    characterDto: CharacterDto
+    characterDto: CharacterDto,
+    onClick: () -> Unit
 ) {
-    Box(modifier) {
+    Box(modifier.clickable { onClick() }) {
         NetworkImage(
             url = characterDto.imagePath?.replace("./", BASE_RESOURCE_URL) ?: "",
             contentDescription = characterDto.name,
@@ -65,7 +67,7 @@ fun PreviewCharacterCard() {
                     imagePath = "./chars/black-panther.png",
                     alterEgo = "T'Challa"
                 )
-            )
+            ){}
         }
 
     }

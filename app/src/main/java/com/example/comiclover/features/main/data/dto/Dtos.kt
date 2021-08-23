@@ -1,8 +1,11 @@
 package com.example.comiclover.features.main.data.dto
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@Parcelize
 @Serializable
 data class AllCharactersDto(
     @SerialName("aliens")
@@ -15,8 +18,9 @@ data class AllCharactersDto(
     val humans: List<CharacterDto>,
     @SerialName("villains")
     val villains: List<CharacterDto>
-)
+): Parcelable
 
+@Parcelize
 @Serializable
 data class CharacterDto(
     @SerialName("abilities")
@@ -33,8 +37,9 @@ data class CharacterDto(
     val movies: List<String>? = null,
     @SerialName("name")
     val name: String? = null
-)
+): Parcelable
 
+@Parcelize
 @Serializable
 data class AbilitiesDto(
     @SerialName("agility")
@@ -47,8 +52,9 @@ data class AbilitiesDto(
     val intelligence: Int,
     @SerialName("velocity")
     val velocity: Int
-)
+): Parcelable
 
+@Parcelize
 @Serializable
 data class CharacteristicsDto(
     @SerialName("birth")
@@ -59,20 +65,22 @@ data class CharacteristicsDto(
     val universe: String,
     @SerialName("weight")
     val weight: WeightDto
-)
+): Parcelable
 
+@Parcelize
 @Serializable
 data class HeightDto(
     @SerialName("unity")
     val unity: String,
     @SerialName("value")
     val value: Double
-)
+): Parcelable
 
+@Parcelize
 @Serializable
 data class WeightDto(
     @SerialName("unity")
     val unity: String,
     @SerialName("value")
     val value: Int
-)
+): Parcelable
