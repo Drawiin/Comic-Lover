@@ -46,7 +46,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-        useIR = true
     }
     buildFeatures {
         compose = true
@@ -57,6 +56,7 @@ android {
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":core")))
 
     implementation("com.google.dagger:hilt-android:${Versions.hilt}")
     kapt("com.google.dagger:hilt-compiler:${Versions.hilt}")

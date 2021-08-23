@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.comiclover.core.arch
+package com.drawiin.core.arch
 
 /**
  * Represents a value of one of two possible types (a disjoint union).

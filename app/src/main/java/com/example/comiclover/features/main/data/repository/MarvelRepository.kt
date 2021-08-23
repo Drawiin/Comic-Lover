@@ -1,6 +1,6 @@
 package com.example.comiclover.features.main.data.repository
 
-import com.example.comiclover.core.arch.Either
+import com.drawiin.core.arch.Either
 import com.example.comiclover.core.error.Failure
 import com.example.comiclover.features.main.data.dto.AllCharactersDto
 import com.example.comiclover.network.service.MarvelService

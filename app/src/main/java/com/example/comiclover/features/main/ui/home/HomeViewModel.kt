@@ -2,8 +2,8 @@ package com.example.comiclover.features.main.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.comiclover.core.arch.onFailure
-import com.example.comiclover.core.arch.onSuccess
+import com.drawiin.core.arch.onFailure
+import com.drawiin.core.arch.onSuccess
 import com.example.comiclover.features.main.data.dto.AllCharactersDto
 import com.example.comiclover.features.main.data.repository.MarvelRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
