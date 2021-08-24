@@ -5,7 +5,7 @@ import com.example.comiclover.core.error.Failure
 import com.example.comiclover.features.main.data.dto.AllCharactersDto
 import com.example.comiclover.network.service.MarvelService
 import com.example.comiclover.network.util.NetworkHandler
-import com.example.comiclover.utils.extensions.toCustomExceptions
+import com.example.comiclover.network.util.extensions.toCustomExceptions
 import javax.inject.Inject
 
 class MarvelRepository @Inject constructor(

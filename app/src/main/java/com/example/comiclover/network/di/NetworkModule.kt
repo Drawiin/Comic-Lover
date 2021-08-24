@@ -1,10 +1,10 @@
-package com.example.comiclover.app.di
+package com.example.comiclover.network.di
 
 import android.util.Log
 import com.example.comiclover.BuildConfig
 import com.example.comiclover.core.constants.APP_LOGGER_NAME
 import com.example.comiclover.core.constants.NETWORK_TIME_OUT
-import com.example.comiclover.utils.extensions.isValidJson
+import com.example.comiclover.network.util.extensions.isValidJson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

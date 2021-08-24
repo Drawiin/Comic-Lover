@@ -2,7 +2,7 @@ package com.example.comiclover.network.util
 
 import android.app.Application
 import android.net.NetworkCapabilities
-import com.example.comiclover.utils.extensions.connectivityManager
+import com.example.comiclover.network.util.extensions.connectivityManager
 import javax.inject.Inject
 import javax.inject.Singleton
 

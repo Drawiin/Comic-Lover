@@ -1,4 +1,4 @@
-package com.example.comiclover.utils.extensions
+package com.example.comiclover.network.util.extensions
 
 import android.content.Context
 import android.net.ConnectivityManager
