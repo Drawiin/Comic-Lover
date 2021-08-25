@@ -17,7 +17,7 @@ android {
         targetSdk = Sdk.targetSdk
         versionCode = AppCoordinates.versionCode
         versionName = AppCoordinates.versionName
-        testInstrumentationRunner = Versions.testImplementationRunner
+        testInstrumentationRunner = Libs.testImplementationRunner
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -50,40 +50,54 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
+        kotlinCompilerExtensionVersion = Libs.Androidx.Compose.version
     }
 }
 
 dependencies {
     implementation(project(mapOf("path" to ":core")))
 
-    implementation("com.google.dagger:hilt-android:${Versions.hilt}")
-    kapt("com.google.dagger:hilt-compiler:${Versions.hilt}")
+    with(Libs.Hilt) {
+        implementation(android)
+        kapt(compiler)
+    }
+    with(Libs.Ktor) {
+        implementation(android)
+        implementation(clientLoggingJvm)
+        implementation(serialization)
+    }
 
-    implementation("io.ktor:ktor-client-android:${Versions.ktor}")
-    implementation("io.ktor:ktor-client-serialization:${Versions.ktor}")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}")
-    implementation("io.ktor:ktor-client-logging-jvm:${Versions.ktor}")
+    with(Libs.Androidx.Compose) {
+        implementation(ui)
+        implementation(material)
+        implementation(uiTooling)
+        androidTestImplementation(testing)
+    }
 
-    implementation ("com.google.accompanist:accompanist-systemuicontroller:${Versions.systemUiController}")
+    implementation(Libs.KotlinSerialization.serialization)
 
-    implementation("androidx.navigation:navigation-compose:${Versions.navigationCompose}")
-    implementation("androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}")
+    implementation(Libs.Accompanist.systemUiController)
 
-    implementation("io.coil-kt:coil-compose:${Versions.coil}")
+    implementation(Libs.Coil.coilCompose)
 
-    implementation("androidx.core:core-ktx:${Versions.androidx}")
-    implementation("androidx.appcompat:appcompat:${Versions.appCompat}")
-    implementation("com.google.android.material:material:${Versions.material}")
-    implementation("androidx.compose.ui:ui:${Versions.compose}")
-    implementation("androidx.compose.material:material:${Versions.compose}")
-    implementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}")
-    implementation("androidx.activity:activity-compose:${Versions.activityCompose}")
+    implementation(Libs.NavigationCompose.navCompose)
+
+    implementation(Libs.HiltNavigationCompose.hiltNavCompose)
+
+    implementation(Libs.Material.material)
+
+    implementation(Libs.Androidx.ActivityCompose.compose)
+
+    implementation(Libs.Androidx.Core.core)
+
+    implementation(Libs.Androidx.Lifecycle.lifecycle)
+
+    implementation(Libs.Androidx.AppCompat.compat)
+
+    androidTestImplementation(Libs.Androidx.Test.Junit.junit)
+    androidTestImplementation(Libs.Androidx.Test.Espresso.espresso)
+
+
     testImplementation("junit:junit:4.+")
-
-    androidTestImplementation("androidx.test.ext:junit:${Versions.junit}")
-    androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.espresso}")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Versions.compose}")
     implementation(kotlin("reflect"))
 }

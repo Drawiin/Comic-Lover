@@ -7,10 +7,12 @@ buildscript {
 
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:${Versions.gradle}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
-        classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}")
-        classpath("org.jetbrains.kotlin:kotlin-serialization:${Versions.kotlin}")
+        classpath(Libs.androidGradlePlugin)
+        classpath(Libs.Hilt.androidGradlePlugin)
+        with(Libs.Kotlin){
+            classpath(gradlePlugin)
+            classpath(serialization)
+        }
     }
 }
 

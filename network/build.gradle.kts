@@ -9,7 +9,7 @@ android {
     defaultConfig {
         minSdk = Sdk.minSdk
         targetSdk = Sdk.targetSdk
-        testInstrumentationRunner = Versions.testImplementationRunner
+        testInstrumentationRunner = Libs.testImplementationRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 
