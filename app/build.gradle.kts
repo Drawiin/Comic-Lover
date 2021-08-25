@@ -7,6 +7,13 @@ plugins {
     id("kotlinx-serialization")
 }
 
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+hilt {
+    enableAggregatingTask = true
+}
 android {
     compileSdk = Sdk.compileSdk
     buildToolsVersion = AppCoordinates.buildTools
@@ -24,14 +31,7 @@ android {
     }
 
     buildTypes {
-        debug {
-            buildConfigField("String", BuildFields.PRIVATE_KEY, Keys.privateKey)
-            buildConfigField("String", BuildFields.PUBLIC_KEY, Keys.publicKey)
-        }
-
         release {
-            buildConfigField("String", BuildFields.PRIVATE_KEY, Keys.privateKey)
-            buildConfigField("String", BuildFields.PUBLIC_KEY, Keys.publicKey)
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -48,6 +48,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = Libs.Androidx.Compose.version
@@ -56,6 +57,7 @@ android {
 
 dependencies {
     implementation(project(mapOf("path" to ":core")))
+    implementation(project(mapOf("path" to ":network")))
 
     with(Libs.Hilt) {
         implementation(android)
@@ -98,6 +100,6 @@ dependencies {
     androidTestImplementation(Libs.Androidx.Test.Espresso.espresso)
 
 
-    testImplementation("junit:junit:4.+")
+    testImplementation("junit:junit:4.13.2")
     implementation(kotlin("reflect"))
 }

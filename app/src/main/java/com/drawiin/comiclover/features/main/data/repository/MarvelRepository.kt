@@ -3,9 +3,9 @@ package com.drawiin.comiclover.features.main.data.repository
 import com.drawiin.core.arch.Either
 import com.drawiin.core.error.Failure
 import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
-import com.drawiin.comiclover.network.service.MarvelService
-import com.drawiin.comiclover.network.util.NetworkHandler
-import com.drawiin.comiclover.network.util.extensions.toCustomExceptions
+import com.drawiin.comiclover.features.main.data.service.MarvelService
+import com.drawiin.network.util.error.NetworkHandler
+import com.drawiin.network.util.extensions.toCustomExceptions
 import javax.inject.Inject
 
 class MarvelRepository @Inject constructor(

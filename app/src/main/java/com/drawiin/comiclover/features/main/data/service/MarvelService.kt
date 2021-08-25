@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.network.service
+package com.drawiin.comiclover.features.main.data.service
 
 import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
 import io.ktor.client.*

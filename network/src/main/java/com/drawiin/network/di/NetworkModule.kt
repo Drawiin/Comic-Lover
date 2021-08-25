@@ -1,10 +1,10 @@
-package com.drawiin.comiclover.network.di
+package com.drawiin.network.di
 
 import android.util.Log
-import com.drawiin.comiclover.BuildConfig
-import com.drawiin.core.constants.APP_LOGGER_NAME
-import com.drawiin.core.constants.NETWORK_TIME_OUT
-import com.drawiin.comiclover.network.util.extensions.isValidJson
+import com.drawiin.network.util.constants.APP_LOGGER_NAME
+import com.drawiin.network.util.constants.BASE_CLIENT_URL
+import com.drawiin.network.util.constants.NETWORK_TIME_OUT
+import com.drawiin.network.util.extensions.isValidJson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -90,7 +90,7 @@ object NetworkModule {
 
         install(DefaultRequest) {
             header(HttpHeaders.ContentType, ContentType.Application.Json)
-            host = "raw.githubusercontent.com/Lorenalgm/marvel-heroes/master"
+            host = BASE_CLIENT_URL
             url {
                 protocol = URLProtocol.HTTPS
             }

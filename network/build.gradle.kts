@@ -1,6 +1,9 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
+    id("kotlinx-serialization")
 }
 
 android {
@@ -32,11 +35,22 @@ android {
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":core")))
+    with(Libs.Hilt) {
+        implementation(android)
+        kapt(compiler)
+    }
+    with(Libs.Ktor) {
+        implementation(android)
+        implementation(clientLoggingJvm)
+        implementation(serialization)
+    }
 
-    implementation("androidx.core:core-ktx:1.6.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("com.google.android.material:material:1.4.0")
-    testImplementation("junit:junit:4.+")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation(Libs.Androidx.Core.core)
+    implementation(Libs.Androidx.AppCompat.compat)
+    implementation(Libs.Material.material)
+    testImplementation(Test.junit)
+
+    androidTestImplementation(Libs.Androidx.Test.Junit.junit)
+    androidTestImplementation(Libs.Androidx.Test.Espresso.espresso)
 }

@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.network.util.extensions
+package com.drawiin.network.util.extensions
 
 import com.drawiin.core.error.Failure
 import io.ktor.client.features.*

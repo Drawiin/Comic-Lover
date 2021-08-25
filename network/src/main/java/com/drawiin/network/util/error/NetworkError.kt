@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.network.util
+package com.drawiin.network.util.error
 
 sealed class NetworkError(
     val errorMessage: String?

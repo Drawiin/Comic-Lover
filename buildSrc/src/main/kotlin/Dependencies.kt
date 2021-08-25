@@ -46,11 +46,11 @@ object Libs {
 
     object Androidx {
         object Core {
-            const val core = "androidx.core:core-ktx:1.5.0"
+            const val core = "androidx.core:core-ktx:1.6.0"
         }
 
         object AppCompat {
-            const val compat = "androidx.appcompat:appcompat:1.3.0"
+            const val compat = "androidx.appcompat:appcompat:1.3.1"
         }
 
         object Lifecycle {
@@ -74,11 +74,10 @@ object Libs {
         object Test {
             object Junit {
                 const val junit = "androidx.test.ext:junit:1.1.2"
-
             }
 
             object Espresso {
-                const val espresso = "androidx.test.espresso:espresso-core:3.3.0"
+                const val espresso = "androidx.test.espresso:espresso-core:3.4.0"
 
             }
         }
@@ -86,7 +85,7 @@ object Libs {
     }
 
     object Material {
-        private const val version = "1.3.0"
+        private const val version = "1.4.0"
         const val material = "com.google.android.material:material:$version"
     }
 
@@ -101,4 +100,8 @@ object Libs {
             "com.google.accompanist:accompanist-systemuicontroller:$version"
     }
 
+}
+
+object Test {
+    const val junit = "junit:junit:4.13.2"
 }

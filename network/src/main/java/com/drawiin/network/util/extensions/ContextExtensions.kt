@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.network.util.extensions
+package com.drawiin.network.util.extensions
 
 import android.content.Context
 import android.net.ConnectivityManager

@@ -1,8 +1,8 @@
-package com.drawiin.comiclover.network.util
+package com.drawiin.network.util.error
 
 import android.app.Application
 import android.net.NetworkCapabilities
-import com.drawiin.comiclover.network.util.extensions.connectivityManager
+import com.drawiin.network.util.extensions.connectivityManager
 import javax.inject.Inject
 import javax.inject.Singleton
 
