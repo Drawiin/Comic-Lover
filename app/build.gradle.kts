@@ -17,8 +17,7 @@ android {
         targetSdk = Sdk.targetSdk
         versionCode = AppCoordinates.versionCode
         versionName = AppCoordinates.versionName
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = Versions.testImplementationRunner
         vectorDrawables {
             useSupportLibrary = true
         }

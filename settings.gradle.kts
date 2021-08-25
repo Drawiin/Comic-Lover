@@ -7,5 +7,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Comic Lover"
-include(":app")
-include(":core")
+include(":app", ":core", ":network")

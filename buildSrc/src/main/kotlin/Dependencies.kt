@@ -5,6 +5,7 @@ object Sdk {
 }
 
 object Versions {
+    const val testImplementationRunner = "androidx.test.runner.AndroidJUnitRunner"
     const val gradle = "7.0.0"
     const val kotlin = "1.5.10"
     const val hilt = "2.37"
