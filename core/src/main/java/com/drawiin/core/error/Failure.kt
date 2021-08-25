@@ -1,4 +1,4 @@
-package com.example.comiclover.core.error
+package com.drawiin.core.error
 
 sealed class Failure {
     object NetworkConnection : Failure()
