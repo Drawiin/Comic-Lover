@@ -16,13 +16,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import com.drawiin.comiclover.commoniu.composables.Abilities
-import com.drawiin.comiclover.commoniu.composables.Characteristics
-import com.drawiin.comiclover.commoniu.composables.NetworkImage
-import com.drawiin.comiclover.commoniu.composables.TransparentAppBar
-import com.drawiin.comiclover.commoniu.theme.*
+import com.drawiin.comiclover.features.main.composables.Abilities
+import com.drawiin.comiclover.features.main.composables.Characteristics
+import com.drawiin.comiclover.features.main.composables.TransparentAppBar
 import com.drawiin.core.constants.BASE_RESOURCE_URL
 import com.drawiin.comiclover.features.main.data.dto.CharacterDto
+import com.drawiin.common_ui.composables.NetworkImage
+import com.drawiin.common_ui.theme.*
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable

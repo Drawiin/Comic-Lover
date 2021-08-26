@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.commoniu.composables
+package com.drawiin.comiclover.features.main.composables
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import com.drawiin.comiclover.R
-import com.drawiin.comiclover.commoniu.theme.*
 import com.drawiin.comiclover.features.main.data.dto.CharacterDto
+import com.drawiin.common_ui.theme.*
 
 @Composable
 fun CharactersSection(

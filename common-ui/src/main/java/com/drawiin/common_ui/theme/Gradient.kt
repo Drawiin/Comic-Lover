@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.commoniu.theme
+package com.drawiin.common_ui.theme
 
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color

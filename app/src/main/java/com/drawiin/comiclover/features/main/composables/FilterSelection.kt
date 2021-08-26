@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.commoniu.composables
+package com.drawiin.comiclover.features.main.composables
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
 import com.drawiin.comiclover.R
-import com.drawiin.comiclover.commoniu.theme.*
+import com.drawiin.common_ui.theme.*
 
 @Composable
 fun FilterSelection(categories: List<FilterCategory>){

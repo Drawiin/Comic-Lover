@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Comic Lover"
 include(":app", ":core", ":network")
+include(":common-ui")

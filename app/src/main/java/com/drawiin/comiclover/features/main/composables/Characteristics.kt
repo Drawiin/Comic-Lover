@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.commoniu.composables
+package com.drawiin.comiclover.features.main.composables
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.*
@@ -12,11 +12,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.drawiin.comiclover.R
-import com.drawiin.comiclover.commoniu.theme.ComicLoverTheme
-import com.drawiin.comiclover.commoniu.theme.PrimaryWhite
 import com.drawiin.comiclover.features.main.data.dto.CharacteristicsDto
 import com.drawiin.comiclover.features.main.data.dto.HeightDto
 import com.drawiin.comiclover.features.main.data.dto.WeightDto
+import com.drawiin.common_ui.theme.ComicLoverTheme
+import com.drawiin.common_ui.theme.PrimaryWhite
 
 @Composable
 fun Characteristics(modifier: Modifier = Modifier, characteristics: CharacteristicsDto) {

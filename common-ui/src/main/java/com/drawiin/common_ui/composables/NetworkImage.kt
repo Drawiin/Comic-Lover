@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.commoniu.composables
+package com.drawiin.common_ui.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

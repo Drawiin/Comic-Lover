@@ -16,15 +16,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import com.drawiin.comiclover.R
-import com.drawiin.comiclover.commoniu.composables.AppBar
-import com.drawiin.comiclover.commoniu.composables.CharactersSection
-import com.drawiin.comiclover.commoniu.composables.FilterCategory
-import com.drawiin.comiclover.commoniu.composables.FilterSelection
-import com.drawiin.comiclover.commoniu.theme.Padding
-import com.drawiin.comiclover.commoniu.theme.PrimaryGrey
-import com.drawiin.comiclover.commoniu.theme.Spacing
+import com.drawiin.comiclover.features.main.composables.AppBar
+import com.drawiin.comiclover.features.main.composables.CharactersSection
+import com.drawiin.comiclover.features.main.composables.FilterCategory
+import com.drawiin.comiclover.features.main.composables.FilterSelection
 import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
 import com.drawiin.comiclover.features.main.data.dto.CharacterDto
+import com.drawiin.common_ui.theme.Padding
+import com.drawiin.common_ui.theme.PrimaryGrey
+import com.drawiin.common_ui.theme.Spacing
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable

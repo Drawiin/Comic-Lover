@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.commoniu.composables
+package com.drawiin.comiclover.features.main.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -10,9 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.drawiin.comiclover.commoniu.theme.*
 import com.drawiin.core.constants.BASE_RESOURCE_URL
 import com.drawiin.comiclover.features.main.data.dto.CharacterDto
+import com.drawiin.common_ui.composables.NetworkImage
+import com.drawiin.common_ui.theme.*
 
 @Composable
 fun CharacterCard(

@@ -1,9 +1,6 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    kotlin("kapt")
-    id("dagger.hilt.android.plugin")
-    id("kotlinx-serialization")
 }
 
 android {
@@ -32,22 +29,29 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Libs.Androidx.Compose.version
+    }
 }
 
 dependencies {
-    implementation(project(mapOf("path" to ":core")))
-    with(Libs.Hilt) {
-        implementation(android)
-        kapt(compiler)
+    with(Libs.Androidx.Compose) {
+        implementation(ui)
+        implementation(material)
+        implementation(uiTooling)
+        androidTestImplementation(testing)
     }
-    with(Libs.Ktor) {
-        implementation(android)
-        implementation(clientLoggingJvm)
-        implementation(serialization)
-    }
+
+    implementation(Libs.Coil.coilCompose)
 
     implementation(Libs.Androidx.Core.core)
     implementation(Libs.Androidx.AppCompat.compat)
+    implementation(Libs.Material.material)
     testImplementation(Test.junit)
 
     androidTestImplementation(Libs.Androidx.Test.Junit.junit)

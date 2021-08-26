@@ -8,10 +8,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.drawiin.comiclover.commoniu.theme.ComicLoverTheme
 import com.drawiin.comiclover.features.main.ui.character.CharacterScreen
 import com.drawiin.comiclover.features.main.ui.home.HomeScreen
 import com.drawiin.comiclover.features.main.ui.home.HomeViewModel
+import com.drawiin.common_ui.theme.ComicLoverTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

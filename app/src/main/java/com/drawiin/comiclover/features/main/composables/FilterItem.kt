@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.commoniu.composables
+package com.drawiin.comiclover.features.main.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.size
@@ -12,8 +12,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.drawiin.comiclover.commoniu.theme.ComicLoverTheme
-import com.drawiin.comiclover.commoniu.theme.Size
+import com.drawiin.common_ui.theme.ComicLoverTheme
+import com.drawiin.common_ui.theme.Size
+
 
 @Composable
 fun FilterItem(

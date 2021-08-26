@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.commoniu.composables
+package com.drawiin.comiclover.features.main.composables
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.Column
@@ -15,9 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
-import com.drawiin.comiclover.commoniu.theme.Padding
-import com.drawiin.comiclover.commoniu.theme.PrimaryWhite
 import com.drawiin.comiclover.features.main.data.dto.AbilitiesDto
+import com.drawiin.common_ui.theme.Padding
+import com.drawiin.common_ui.theme.PrimaryWhite
 
 @Composable
 fun Abilities(modifier: Modifier = Modifier, abilities: AbilitiesDto) {

@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath(Libs.androidGradlePlugin)
         classpath(Libs.Hilt.androidGradlePlugin)
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
         with(Libs.Kotlin){
             classpath(gradlePlugin)
             classpath(serialization)

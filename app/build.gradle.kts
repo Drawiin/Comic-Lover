@@ -58,6 +58,7 @@ android {
 dependencies {
     implementation(project(mapOf("path" to ":core")))
     implementation(project(mapOf("path" to ":network")))
+    implementation(project(mapOf("path" to ":common-ui")))
 
     with(Libs.Hilt) {
         implementation(android)
@@ -79,8 +80,6 @@ dependencies {
     implementation(Libs.KotlinSerialization.serialization)
 
     implementation(Libs.Accompanist.systemUiController)
-
-    implementation(Libs.Coil.coilCompose)
 
     implementation(Libs.NavigationCompose.navCompose)
 
