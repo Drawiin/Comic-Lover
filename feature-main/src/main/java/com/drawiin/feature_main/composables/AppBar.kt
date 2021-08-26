@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.features.main.composables
+package com.drawiin.feature_main.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -16,9 +16,9 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.drawiin.comiclover.R
 import com.drawiin.common_ui.theme.ComicLoverTheme
 import com.drawiin.common_ui.theme.Padding
+import com.drawiin.feature_main.R
 
 @Composable
 fun AppBar(

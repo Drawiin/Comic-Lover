@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
     id("kotlin-parcelize")
     kotlin("kapt")
@@ -7,27 +7,14 @@ plugins {
     id("kotlinx-serialization")
 }
 
-kapt {
-    correctErrorTypes = true
-    useBuildCache = true
-}
-hilt {
-    enableAggregatingTask = true
-}
 android {
     compileSdk = Sdk.compileSdk
-    buildToolsVersion = AppCoordinates.buildTools
 
     defaultConfig {
-        applicationId = AppCoordinates.applicationId
         minSdk = Sdk.minSdk
         targetSdk = Sdk.targetSdk
-        versionCode = AppCoordinates.versionCode
-        versionName = AppCoordinates.versionName
         testInstrumentationRunner = Libs.testImplementationRunner
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -46,25 +33,26 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
         compose = true
-        buildConfig = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = Libs.Androidx.Compose.version
     }
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":common-ui")))
     implementation(project(mapOf("path" to ":core")))
     implementation(project(mapOf("path" to ":network")))
-    implementation(project(mapOf("path" to ":common-ui")))
-    implementation(project(mapOf("path" to ":feature-main")))
 
     with(Libs.Hilt) {
         implementation(android)
         kapt(compiler)
     }
+
     with(Libs.Ktor) {
         implementation(android)
         implementation(clientLoggingJvm)
@@ -78,28 +66,23 @@ dependencies {
         androidTestImplementation(testing)
     }
 
-    implementation(Libs.KotlinSerialization.serialization)
-
     implementation(Libs.Accompanist.systemUiController)
 
-    implementation(Libs.NavigationCompose.navCompose)
-
-    implementation(Libs.HiltNavigationCompose.hiltNavCompose)
-
-    implementation(Libs.Material.material)
-
-    implementation(Libs.Androidx.ActivityCompose.compose)
-
-    implementation(Libs.Androidx.Core.core)
-
-    implementation(Libs.Androidx.Lifecycle.lifecycle)
+    implementation(Libs.KotlinSerialization.serialization)
 
     implementation(Libs.Androidx.AppCompat.compat)
+    implementation(Libs.Androidx.Lifecycle.lifecycle)
+
+    implementation(Libs.Coil.coilCompose)
+
+    implementation(Libs.Androidx.AppCompat.compat)
+    implementation(Libs.Androidx.ActivityCompose.compose)
+    implementation(Libs.Androidx.Core.core)
+    implementation(Libs.Androidx.Lifecycle.lifecycle)
+
+    implementation(Libs.Material.material)
+    testImplementation(Test.junit)
 
     androidTestImplementation(Libs.Androidx.Test.Junit.junit)
     androidTestImplementation(Libs.Androidx.Test.Espresso.espresso)
-
-
-    testImplementation("junit:junit:4.13.2")
-    implementation(kotlin("reflect"))
 }

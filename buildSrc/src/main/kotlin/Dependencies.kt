@@ -59,7 +59,6 @@ object Libs {
 
         object ActivityCompose {
             const val compose= "androidx.activity:activity-compose:1.3.0-beta01"
-
         }
 
         object Compose {

@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.features.main.composables
+package com.drawiin.feature_main.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -11,8 +11,8 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.drawiin.comiclover.R
 import com.drawiin.common_ui.theme.Size
+import com.drawiin.feature_main.R
 
 @Composable
 fun TransparentAppBar(modifier: Modifier = Modifier, onLeadingClicked: () -> Unit) {

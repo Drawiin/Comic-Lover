@@ -1,11 +1,11 @@
-package com.drawiin.comiclover.features.main.ui.home
+package com.drawiin.feature_main.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.drawiin.core.arch.onFailure
 import com.drawiin.core.arch.onSuccess
 import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
-import com.drawiin.comiclover.features.main.data.repository.MarvelRepository
+import com.drawiin.feature_main.data.repository.MarvelRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.features.main.ui.home
+package com.drawiin.feature_main.ui.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -15,17 +15,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import com.drawiin.comiclover.R
-import com.drawiin.comiclover.features.main.composables.AppBar
+import com.drawiin.feature_main.composables.AppBar
 import com.drawiin.comiclover.features.main.composables.CharactersSection
-import com.drawiin.comiclover.features.main.composables.FilterCategory
-import com.drawiin.comiclover.features.main.composables.FilterSelection
+import com.drawiin.feature_main.composables.FilterCategory
+import com.drawiin.feature_main.composables.FilterSelection
 import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
 import com.drawiin.comiclover.features.main.data.dto.CharacterDto
 import com.drawiin.common_ui.theme.Padding
 import com.drawiin.common_ui.theme.PrimaryGrey
 import com.drawiin.common_ui.theme.Spacing
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.drawiin.feature_main.R
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel, onNavToCharacterDetails: (CharacterDto) -> Unit) {
