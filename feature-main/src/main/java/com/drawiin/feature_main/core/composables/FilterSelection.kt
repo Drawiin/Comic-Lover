@@ -1,4 +1,4 @@
-package com.drawiin.feature_main.composables
+package com.drawiin.feature_main.core.composables
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

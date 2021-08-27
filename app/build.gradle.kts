@@ -11,9 +11,9 @@ kapt {
     correctErrorTypes = true
     useBuildCache = true
 }
-hilt {
-    enableAggregatingTask = true
-}
+//hilt {
+//    enableAggregatingTask = true
+//}
 android {
     compileSdk = Sdk.compileSdk
     buildToolsVersion = AppCoordinates.buildTools
@@ -78,9 +78,12 @@ dependencies {
         androidTestImplementation(testing)
     }
 
-    implementation(Libs.KotlinSerialization.serialization)
+    with(Libs.Accompanist) {
+        implementation(systemUiController)
+        implementation(placeholderMaterial)
+    }
 
-    implementation(Libs.Accompanist.systemUiController)
+    implementation(Libs.KotlinSerialization.serialization)
 
     implementation(Libs.NavigationCompose.navCompose)
 

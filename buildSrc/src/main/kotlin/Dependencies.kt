@@ -94,9 +94,10 @@ object Libs {
     }
 
     object Accompanist {
-        private const val version = "0.16.1"
+        private const val version = "0.17.0"
         const val systemUiController =
             "com.google.accompanist:accompanist-systemuicontroller:$version"
+        const val placeholderMaterial= "com.google.accompanist:accompanist-placeholder-material:$version"
     }
 
 }

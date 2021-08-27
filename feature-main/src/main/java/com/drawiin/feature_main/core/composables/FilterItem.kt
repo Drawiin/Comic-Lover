@@ -14,7 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.drawiin.common_ui.theme.ComicLoverTheme
 import com.drawiin.common_ui.theme.Size
-import com.drawiin.feature_main.composables.FilterCategory
+import com.drawiin.feature_main.core.composables.FilterCategory
 
 
 @Composable

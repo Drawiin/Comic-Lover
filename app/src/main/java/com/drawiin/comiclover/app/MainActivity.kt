@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
                         val homeViewModel: HomeViewModel = hiltViewModel()
                         HomeScreen(
                             viewModel = homeViewModel,
-                            onNavToCharacterDetails = { character ->
+                            navToCharacterDetails = { character ->
                                 Routes.CharacterDetail.navigateTo(character, navController)
                             }
                         )

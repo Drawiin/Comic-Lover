@@ -1,4 +1,4 @@
-package com.drawiin.feature_main.composables
+package com.drawiin.feature_main.core.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

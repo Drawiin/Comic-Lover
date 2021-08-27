@@ -48,6 +48,9 @@ dependencies {
     implementation(project(mapOf("path" to ":core")))
     implementation(project(mapOf("path" to ":network")))
 
+    implementation(kotlin("reflect"))
+
+
     with(Libs.Hilt) {
         implementation(android)
         kapt(compiler)
@@ -66,7 +69,10 @@ dependencies {
         androidTestImplementation(testing)
     }
 
-    implementation(Libs.Accompanist.systemUiController)
+    with(Libs.Accompanist) {
+        implementation(systemUiController)
+        implementation(placeholderMaterial)
+    }
 
     implementation(Libs.KotlinSerialization.serialization)
 

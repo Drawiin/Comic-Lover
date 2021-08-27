@@ -18,7 +18,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import com.drawiin.comiclover.features.main.composables.Abilities
 import com.drawiin.comiclover.features.main.composables.Characteristics
-import com.drawiin.feature_main.composables.TransparentAppBar
+import com.drawiin.feature_main.core.composables.TransparentAppBar
 import com.drawiin.core.constants.BASE_RESOURCE_URL
 import com.drawiin.comiclover.features.main.data.dto.CharacterDto
 import com.drawiin.common_ui.composables.NetworkImage

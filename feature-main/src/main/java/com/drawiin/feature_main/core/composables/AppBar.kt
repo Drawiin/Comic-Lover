@@ -1,4 +1,4 @@
-package com.drawiin.feature_main.composables
+package com.drawiin.feature_main.core.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
