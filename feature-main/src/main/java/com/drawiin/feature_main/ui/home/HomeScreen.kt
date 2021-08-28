@@ -4,30 +4,24 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.drawiin.comiclover.features.main.composables.CharactersSection
 import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
 import com.drawiin.comiclover.features.main.data.dto.CharacterDto
 import com.drawiin.common_ui.composables.DefaultErrorMessage
-import com.drawiin.common_ui.theme.Padding
-import com.drawiin.common_ui.theme.PrimaryGrey
-import com.drawiin.common_ui.theme.Spacing
+import com.drawiin.common_ui.theme.*
 import com.drawiin.feature_main.R
 import com.drawiin.feature_main.core.composables.AppBar
 import com.drawiin.feature_main.core.composables.FilterCategory
 import com.drawiin.feature_main.core.composables.FilterSelection
-import com.google.accompanist.placeholder.PlaceholderHighlight
-import com.google.accompanist.placeholder.material.fade
-import com.google.accompanist.placeholder.material.placeholder
-import com.google.accompanist.placeholder.placeholder
+import com.drawiin.feature_main.core.composables.PlaceholderBox
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
@@ -114,27 +108,68 @@ fun HomeLoading() {
             )
 
         ) {
-            Text(
-                modifier = Modifier.placeholder(true, highlight = PlaceholderHighlight.fade()),
-                text = stringResource(id = R.string.title_welcome_to_marvel_heroes),
-                style = MaterialTheme.typography.h6.copy(color = PrimaryGrey),
+            PlaceholderBox(
+                Modifier
+                    .fillMaxWidth(0.6f)
+                    .height(12.dp)
             )
-            Text(
-                modifier = Modifier.placeholder(true, highlight = PlaceholderHighlight.fade()),
+            Spacer(modifier = Modifier.height(12.dp))
+            PlaceholderBox(
+                Modifier
+                    .fillMaxWidth(0.7f)
+                    .height(20.dp)
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+            PlaceholderBox(
+                Modifier
+                    .fillMaxWidth(0.7f)
+                    .height(20.dp)
+            )
+            Spacer(modifier = Modifier.height(40.dp))
+            PlaceholderBox(
+                Modifier
+                    .fillMaxWidth()
+                    .height(70.dp)
+            )
+            Spacer(modifier = Modifier.height(20.dp))
+            Column(Modifier.fillMaxWidth()) {
+                repeat(2) {
+                    Column(Modifier.fillMaxWidth()) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            PlaceholderBox(
+                                Modifier
+                                    .fillMaxWidth(0.3f)
+                                    .height(12.dp)
+                            )
+                            PlaceholderBox(
+                                Modifier
+                                    .fillMaxWidth(0.3f)
+                                    .height(12.dp)
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Row(modifier = Modifier.fillMaxWidth()) {
+                            repeat(3) {
+                                PlaceholderBox(
+                                    Modifier
+                                        .size(
+                                            width = Width.characterWidth,
+                                            height = Height.characterHeight
+                                        )
 
-                text = stringResource(id = R.string.title_choose_your_character),
-                style = MaterialTheme.typography.h2
-            )
-            Spacer(modifier = Modifier.height(Spacing.default))
-            FilterSelection(categories = categories)
+                                )
+                                Spacer(modifier = Modifier.width(12.dp))
+                            }
+
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(20.dp))
+                }
+            }
         }
-    }
-    Column(
-        Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        CircularProgressIndicator()
     }
 }
 

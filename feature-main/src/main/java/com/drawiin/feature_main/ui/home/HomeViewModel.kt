@@ -2,9 +2,9 @@ package com.drawiin.feature_main.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
 import com.drawiin.core.arch.onFailure
 import com.drawiin.core.arch.onSuccess
-import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
 import com.drawiin.feature_main.data.repository.MarvelRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -31,7 +31,7 @@ class HomeViewModel @Inject constructor(
     private fun loadAllCharacters() {
         setState { HomeState.Loading }
         viewModelScope.launch {
-            delay(2000L)
+            delay(4000L)
             repository.getAllCharacters()
                 .onSuccess { setState { HomeState.Success(it) } }
                 .onFailure { setState { HomeState.Error(it.toString()) } }
