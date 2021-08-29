@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.drawiin.comiclover.features.main.data.dto.CharacterDto
+import com.drawiin.comiclover.features.main.data.dto.Character
 import com.drawiin.common_ui.composables.NetworkImage
 import com.drawiin.common_ui.theme.*
 import com.drawiin.core.constants.BASE_RESOURCE_URL
@@ -18,13 +18,13 @@ import com.drawiin.core.constants.BASE_RESOURCE_URL
 @Composable
 fun CharacterCard(
     modifier: Modifier = Modifier,
-    characterDto: CharacterDto,
+    character: Character,
     onClick: () -> Unit
 ) {
     Box(modifier.clickable { onClick() }) {
         NetworkImage(
-            url = characterDto.imagePath?.replace("./", BASE_RESOURCE_URL) ?: "",
-            contentDescription = characterDto.name,
+            url = character.imagePath?.replace("./", BASE_RESOURCE_URL) ?: "",
+            contentDescription = character.name,
             modifier = Modifier.fillMaxSize()
         )
         Box(
@@ -40,12 +40,12 @@ fun CharacterCard(
             verticalArrangement = Arrangement.Bottom
         ) {
             Text(
-                text = characterDto.alterEgo ?: "", style = MaterialTheme.typography.body2.copy(
+                text = character.alterEgo ?: "", style = MaterialTheme.typography.body2.copy(
                     PrimaryWhite
                 )
             )
             Text(
-                text = characterDto.name ?: "", style = MaterialTheme.typography.h3.copy(
+                text = character.name ?: "", style = MaterialTheme.typography.h3.copy(
                     PrimaryWhite
                 )
             )
@@ -63,7 +63,7 @@ fun PreviewCharacterCard() {
                 Modifier
                     .size(width = Width.characterWidth, height = Height.characterHeight)
                     .clip(MaterialTheme.shapes.large),
-                characterDto = CharacterDto(
+                character = Character(
                     name = "Pantera Negra",
                     imagePath = "./chars/black-panther.png",
                     alterEgo = "T'Challa"

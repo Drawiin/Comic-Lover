@@ -9,20 +9,20 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class AllCharactersDto(
     @SerialName("aliens")
-    val aliens: List<CharacterDto>,
+    val aliens: List<Character>,
     @SerialName("antiHeroes")
-    val antiHeroes: List<CharacterDto>,
+    val antiHeroes: List<Character>,
     @SerialName("heroes")
-    val heroes: List<CharacterDto>,
+    val heroes: List<Character>,
     @SerialName("humans")
-    val humans: List<CharacterDto>,
+    val humans: List<Character>,
     @SerialName("villains")
-    val villains: List<CharacterDto>
+    val villains: List<Character>
 ): Parcelable
 
 @Parcelize
 @Serializable
-data class CharacterDto(
+data class Character(
     @SerialName("abilities")
     val abilities: AbilitiesDto? = null,
     @SerialName("alterEgo")

@@ -14,7 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.drawiin.comiclover.features.main.composables.CharactersSection
 import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
-import com.drawiin.comiclover.features.main.data.dto.CharacterDto
+import com.drawiin.comiclover.features.main.data.dto.Character
 import com.drawiin.common_ui.composables.DefaultErrorMessage
 import com.drawiin.common_ui.theme.*
 import com.drawiin.feature_main.R
@@ -25,7 +25,7 @@ import com.drawiin.feature_main.core.composables.PlaceholderBox
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel, navToCharacterDetails: (CharacterDto) -> Unit) {
+fun HomeScreen(viewModel: HomeViewModel, navToCharacterDetails: (Character) -> Unit) {
     val systemUiController = rememberSystemUiController()
     SideEffect {
         with(systemUiController) {
@@ -58,7 +58,7 @@ fun HomeScreen(viewModel: HomeViewModel, navToCharacterDetails: (CharacterDto) -
 }
 
 @Composable
-private fun HomeSuccess(state: HomeState.Success, onCharacterClicked: (CharacterDto) -> Unit) {
+private fun HomeSuccess(state: HomeState.Success, onCharacterClicked: (Character) -> Unit) {
     val categories = remember {
         FilterCategory::class.nestedClasses
             .map { it.objectInstance as FilterCategory }
@@ -174,7 +174,7 @@ fun HomeLoading() {
 }
 
 @Composable
-fun CharactersCategories(categories: AllCharactersDto, onCharacterClicked: (CharacterDto) -> Unit) {
+fun CharactersCategories(categories: AllCharactersDto, onCharacterClicked: (Character) -> Unit) {
     Column(Modifier.padding(bottom = Padding.defaultVertical)) {
         CharactersSection(
             title = "Heróis", charactersList = categories.heroes,

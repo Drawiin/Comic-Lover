@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
-import com.drawiin.comiclover.features.main.data.dto.CharacterDto
+import com.drawiin.comiclover.features.main.data.dto.Character
 import com.drawiin.common_ui.theme.*
 import com.drawiin.feature_main.R
 
@@ -18,8 +18,8 @@ import com.drawiin.feature_main.R
 fun CharactersSection(
     modifier: Modifier = Modifier,
     title: String,
-    charactersList: List<CharacterDto>,
-    onCharacter: (CharacterDto) -> Unit
+    charactersList: List<Character>,
+    onCharacter: (Character) -> Unit
 ) {
     Column(modifier) {
         Row(
@@ -37,7 +37,7 @@ fun CharactersSection(
         LazyRow(contentPadding = PaddingValues(horizontal = Padding.defaultHorizontal)) {
             items(charactersList) { character ->
                 CharacterCard(
-                    characterDto = character,
+                    character = character,
                     modifier = Modifier
                         .size(
                             width = Width.characterWidth,

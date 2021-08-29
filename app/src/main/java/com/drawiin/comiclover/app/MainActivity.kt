@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
                         val character = Routes.CharacterDetail.getNavArgs(backStackEntry)
                         character?.let {
                             CharacterScreen(
-                                characterDto = character,
+                                character = character,
                                 onBack = { navController.popBackStack() })
                         }
                     }

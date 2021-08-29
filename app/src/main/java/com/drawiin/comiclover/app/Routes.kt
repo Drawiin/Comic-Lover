@@ -4,7 +4,7 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavType
 import androidx.navigation.compose.navArgument
-import com.drawiin.comiclover.features.main.data.dto.CharacterDto
+import com.drawiin.comiclover.features.main.data.dto.Character
 
 sealed class Routes(val route: String) {
     object Home : Routes("home")
@@ -13,18 +13,18 @@ sealed class Routes(val route: String) {
 
         val navArgs
             get() = listOf(navArgument(characterArg) {
-                type = NavType.ParcelableType(CharacterDto::class.java)
+                type = NavType.ParcelableType(Character::class.java)
             })
 
-        fun navigateTo(characterDto: CharacterDto, navController: NavController) {
+        fun navigateTo(character: Character, navController: NavController) {
             navController.navigate(route)
             navController.currentBackStackEntry?.arguments?.putParcelable(
                 characterArg,
-                characterDto
+                character
             )
         }
 
         fun getNavArgs(backStackEntry: NavBackStackEntry) =
-            backStackEntry.arguments?.getParcelable<CharacterDto>(characterArg)
+            backStackEntry.arguments?.getParcelable<Character>(characterArg)
     }
 }
