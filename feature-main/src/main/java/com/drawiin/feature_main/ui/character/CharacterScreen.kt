@@ -31,6 +31,8 @@ import com.drawiin.core.constants.BASE_RESOURCE_URL
 import com.drawiin.feature_main.R
 import com.drawiin.feature_main.core.composables.TransparentAppBar
 import com.drawiin.feature_main.util.SetStatusBarConfig
+import com.google.accompanist.insets.navigationBarsPadding
+import com.google.accompanist.insets.statusBarsPadding
 
 
 @ExperimentalCoilApi
@@ -50,7 +52,7 @@ fun CharacterScreen(
                 .fillMaxSize()
                 .background(PrimaryBlack)
                 .verticalScroll(scrollState, true)
-                .padding(bottom = Padding.topSafe)
+                .navigationBarsPadding()
         ) {
             CharacterPoster(character = character)
             CharacterDetails(character = character)
@@ -74,7 +76,7 @@ fun NavigationOverlay(onBack: () -> Unit, showBackgroundContrast: Boolean = true
         Modifier
             .fillMaxWidth()
             .background(color)
-            .padding(top = Padding.topSafe)
+            .statusBarsPadding()
             .padding(horizontal = Padding.defaultHorizontal, vertical = Padding.defaultVertical),
         onLeadingClicked = onBack
     )
