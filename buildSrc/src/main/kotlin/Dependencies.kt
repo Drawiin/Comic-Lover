@@ -98,6 +98,7 @@ object Libs {
         const val systemUiController =
             "com.google.accompanist:accompanist-systemuicontroller:$version"
         const val placeholderMaterial= "com.google.accompanist:accompanist-placeholder-material:$version"
+        const val insets = "com.google.accompanist:accompanist-insets:$version"
     }
 
 }

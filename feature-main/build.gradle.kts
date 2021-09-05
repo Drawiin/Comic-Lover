@@ -72,6 +72,7 @@ dependencies {
     with(Libs.Accompanist) {
         implementation(systemUiController)
         implementation(placeholderMaterial)
+        implementation(insets)
     }
 
     implementation(Libs.KotlinSerialization.serialization)

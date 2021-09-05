@@ -7,12 +7,15 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.drawiin.comiclover.features.main.composables.CharactersSection
+import com.drawiin.feature_main.core.composables.CharactersSection
 import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
 import com.drawiin.comiclover.features.main.data.dto.Character
 import com.drawiin.common_ui.composables.DefaultErrorMessage
@@ -22,18 +25,15 @@ import com.drawiin.feature_main.core.composables.AppBar
 import com.drawiin.feature_main.core.composables.FilterCategory
 import com.drawiin.feature_main.core.composables.FilterSelection
 import com.drawiin.feature_main.core.composables.PlaceholderBox
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.drawiin.feature_main.util.SetStatusBarConfig
+import com.google.accompanist.insets.navigationBarsPadding
+import com.google.accompanist.insets.statusBarsPadding
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel, navToCharacterDetails: (Character) -> Unit) {
-    val systemUiController = rememberSystemUiController()
-    SideEffect {
-        with(systemUiController) {
-            setSystemBarsColor(
-                color = Color.Transparent,
-                darkIcons = true
-            )
-        }
+    SetStatusBarConfig {
+        color = Color.Transparent
+        darkIcons = true
     }
 
     val homeState: HomeState by viewModel.homeState.collectAsState()
@@ -41,18 +41,24 @@ fun HomeScreen(viewModel: HomeViewModel, navToCharacterDetails: (Character) -> U
     Scaffold(
         modifier = Modifier
             .background(MaterialTheme.colors.surface)
-            .padding(top = Padding.topSafe),
+            .statusBarsPadding(),
+        /*.systemBarsPadding()*/
         topBar = {
             AppBar(onLeadingClicked = {}, onLeaTrailingClicked = {})
         },
-    ) {
-        when (val state = homeState) {
-            is HomeState.Error -> DefaultErrorMessage(message = state.message)
-            is HomeState.Loading -> HomeLoading()
-            is HomeState.Success -> HomeSuccess(
-                state = state,
-                onCharacterClicked = navToCharacterDetails
-            )
+    ) { contentPadding ->
+        Box(
+            Modifier
+                .fillMaxSize()
+                .padding(contentPadding)) {
+            when (val state = homeState) {
+                is HomeState.Error -> DefaultErrorMessage(message = state.message)
+                is HomeState.Loading -> HomeLoading()
+                is HomeState.Success -> HomeSuccess(
+                    state = state,
+                    onCharacterClicked = navToCharacterDetails
+                )
+            }
         }
     }
 }
@@ -67,12 +73,11 @@ private fun HomeSuccess(state: HomeState.Success, onCharacterClicked: (Character
     Column(
         Modifier
             .verticalScroll(scroll, true)
-            .padding(top = Padding.topSafe, bottom = Padding.bottomSafe),
+            .navigationBarsPadding(),
     ) {
         Column(
             Modifier.padding(
-                horizontal = Padding.defaultHorizontal,
-                vertical = Padding.defaultVertical
+                horizontal = Padding.defaultHorizontal
             )
         ) {
             Text(
@@ -97,80 +102,75 @@ fun HomeLoading() {
             .map { it.objectInstance as FilterCategory }
     }
     Column(
-        Modifier
-            .padding(top = Padding.topSafe, bottom = Padding.bottomSafe)
+        Modifier.padding(
+            horizontal = Padding.defaultHorizontal,
+            vertical = Padding.defaultVertical
+        )
 
     ) {
-        Column(
-            Modifier.padding(
-                horizontal = Padding.defaultHorizontal,
-                vertical = Padding.defaultVertical
-            )
-
-        ) {
-            PlaceholderBox(
-                Modifier
-                    .fillMaxWidth(0.6f)
-                    .height(12.dp)
-            )
-            Spacer(modifier = Modifier.height(12.dp))
-            PlaceholderBox(
-                Modifier
-                    .fillMaxWidth(0.7f)
-                    .height(20.dp)
-            )
-            Spacer(modifier = Modifier.height(12.dp))
-            PlaceholderBox(
-                Modifier
-                    .fillMaxWidth(0.7f)
-                    .height(20.dp)
-            )
-            Spacer(modifier = Modifier.height(40.dp))
-            PlaceholderBox(
-                Modifier
-                    .fillMaxWidth()
-                    .height(70.dp)
-            )
-            Spacer(modifier = Modifier.height(20.dp))
-            Column(Modifier.fillMaxWidth()) {
-                repeat(2) {
-                    Column(Modifier.fillMaxWidth()) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            PlaceholderBox(
-                                Modifier
-                                    .fillMaxWidth(0.3f)
-                                    .height(12.dp)
-                            )
-                            PlaceholderBox(
-                                Modifier
-                                    .fillMaxWidth(0.3f)
-                                    .height(12.dp)
-                            )
-                        }
-                        Spacer(modifier = Modifier.height(12.dp))
-                        Row(modifier = Modifier.fillMaxWidth()) {
-                            repeat(3) {
-                                PlaceholderBox(
-                                    Modifier
-                                        .size(
-                                            width = Width.characterWidth,
-                                            height = Height.characterHeight
-                                        )
-
-                                )
-                                Spacer(modifier = Modifier.width(12.dp))
-                            }
-
-                        }
+        PlaceholderBox(
+            Modifier
+                .fillMaxWidth(0.6f)
+                .height(12.dp)
+        )
+        Spacer(modifier = Modifier.height(12.dp))
+        PlaceholderBox(
+            Modifier
+                .fillMaxWidth(0.7f)
+                .height(20.dp)
+        )
+        Spacer(modifier = Modifier.height(12.dp))
+        PlaceholderBox(
+            Modifier
+                .fillMaxWidth(0.7f)
+                .height(20.dp)
+        )
+        Spacer(modifier = Modifier.height(40.dp))
+        PlaceholderBox(
+            Modifier
+                .fillMaxWidth()
+                .height(70.dp)
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+        Column(Modifier.fillMaxWidth()) {
+            repeat(2) {
+                Column(Modifier.fillMaxWidth()) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        PlaceholderBox(
+                            Modifier
+                                .fillMaxWidth(0.3f)
+                                .height(12.dp)
+                        )
+                        PlaceholderBox(
+                            Modifier
+                                .fillMaxWidth(0.3f)
+                                .height(12.dp)
+                        )
                     }
-                    Spacer(modifier = Modifier.height(20.dp))
+                    Spacer(modifier = Modifier.height(12.dp))
+                    Row(modifier = Modifier.fillMaxWidth()) {
+                        repeat(3) {
+                            PlaceholderBox(
+                                Modifier
+                                    .size(
+                                        width = Width.characterWidth,
+                                        height = Height.characterHeight
+                                    )
+
+                            )
+                            Spacer(modifier = Modifier.width(12.dp))
+                        }
+
+                    }
                 }
+                Spacer(modifier = Modifier.height(20.dp))
             }
         }
     }
+
 }
 
 @Composable

@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.features.main.composables
+package com.drawiin.feature_main.core.composables
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
+import com.drawiin.comiclover.features.main.composables.CharacterCard
 import com.drawiin.comiclover.features.main.data.dto.Character
 import com.drawiin.common_ui.theme.*
 import com.drawiin.feature_main.R
