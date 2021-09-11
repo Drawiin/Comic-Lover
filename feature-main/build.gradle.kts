@@ -69,6 +69,10 @@ dependencies {
         androidTestImplementation(testing)
     }
 
+    implementation(Libs.NavigationCompose.navCompose)
+
+    implementation(Libs.HiltNavigationCompose.hiltNavCompose)
+
     with(Libs.Accompanist) {
         implementation(systemUiController)
         implementation(placeholderMaterial)
