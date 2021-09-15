@@ -15,7 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
-import com.drawiin.comiclover.features.main.data.dto.AbilitiesDto
+import com.drawiin.feature_main.data.dto.AbilitiesDto
 import com.drawiin.common_ui.theme.Padding
 import com.drawiin.common_ui.theme.PrimaryWhite
 

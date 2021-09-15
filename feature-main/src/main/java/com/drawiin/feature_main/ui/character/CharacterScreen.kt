@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import com.drawiin.comiclover.features.main.composables.Abilities
 import com.drawiin.comiclover.features.main.composables.Characteristics
-import com.drawiin.comiclover.features.main.data.dto.Character
+import com.drawiin.feature_main.data.dto.Character
 import com.drawiin.common_ui.composables.NetworkImage
 import com.drawiin.common_ui.theme.*
 import com.drawiin.core.constants.BASE_RESOURCE_URL
@@ -106,6 +106,7 @@ private fun CharacterPoster(character: Character) {
     }
 }
 
+@ExperimentalCoilApi
 @Composable
 fun CharacterDetails(character: Character) {
     character.biography?.let {
@@ -186,6 +187,7 @@ fun CharacterPosterCharacteristics(character: Character) {
     }
 }
 
+@ExperimentalCoilApi
 @Preview(showSystemUi = true)
 @Composable
 fun CharactersPreview() {

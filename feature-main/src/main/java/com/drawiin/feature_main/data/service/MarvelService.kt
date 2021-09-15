@@ -1,6 +1,6 @@
 package com.drawiin.feature_main.data.service
 
-import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
+import com.drawiin.feature_main.data.dto.AllCharactersDto
 import io.ktor.client.*
 import io.ktor.client.request.*
 import javax.inject.Inject

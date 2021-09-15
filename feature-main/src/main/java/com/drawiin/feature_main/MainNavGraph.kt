@@ -1,16 +1,25 @@
 package com.drawiin.feature_main
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.*
-import androidx.navigation.compose.composable
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.navArgument
-import com.drawiin.comiclover.features.main.data.dto.Character
+import coil.annotation.ExperimentalCoilApi
 import com.drawiin.core.arch.NavigationRoute
 import com.drawiin.feature_main.ui.character.CharacterScreen
 import com.drawiin.feature_main.ui.home.HomeScreen
 import com.drawiin.feature_main.ui.home.HomeViewModel
+import com.google.accompanist.navigation.animation.composable
+import com.google.accompanist.navigation.animation.navigation
+import com.drawiin.feature_main.data.dto.Character
 
-fun NavGraphBuilder.addMainNavGraph(navController: NavController, routeName: String) {
+
+@ExperimentalCoilApi
+@ExperimentalAnimationApi
+fun NavGraphBuilder.addMainNavGraph(navController: NavHostController, routeName: String) {
     navigation(route = routeName, startDestination = MainRoutes.Home.routeName) {
         composable(
             MainRoutes.Home.routeName,
@@ -25,8 +34,7 @@ fun NavGraphBuilder.addMainNavGraph(navController: NavController, routeName: Str
         }
 
         composable(
-            route = MainRoutes.CharacterDetail.routeName,
-            arguments = MainRoutes.CharacterDetail.navArgs
+            route = MainRoutes.CharacterDetail.routeName
         ) { backStackEntry ->
             val character = MainRoutes.CharacterDetail.getNavArgs(backStackEntry)
             character?.let {
@@ -48,7 +56,7 @@ sealed class MainRoutes(override val routeName: String): NavigationRoute {
                 type = NavType.ParcelableType(Character::class.java)
             })
 
-        fun navigateTo(character: Character, navController: NavController) {
+        fun navigateTo(character: Character, navController: NavHostController) {
             navController.navigate(routeName)
             navController.currentBackStackEntry?.arguments?.putParcelable(
                 characterArg,

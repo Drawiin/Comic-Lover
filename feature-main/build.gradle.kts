@@ -77,6 +77,7 @@ dependencies {
         implementation(systemUiController)
         implementation(placeholderMaterial)
         implementation(insets)
+        implementation(navigationAnimation)
     }
 
     implementation(Libs.KotlinSerialization.serialization)

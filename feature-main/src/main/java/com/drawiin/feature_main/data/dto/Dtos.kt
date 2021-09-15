@@ -1,4 +1,4 @@
-package com.drawiin.comiclover.features.main.data.dto
+package com.drawiin.feature_main.data.dto
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

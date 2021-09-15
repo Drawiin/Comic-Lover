@@ -1,7 +1,7 @@
 object Sdk {
     const val minSdk = 23
-    const val targetSdk = 30
-    const val compileSdk = 30
+    const val targetSdk = 31
+    const val compileSdk = 31
 }
 
 object Libs {
@@ -30,7 +30,7 @@ object Libs {
     }
 
     object NavigationCompose {
-        private const val version = "2.4.0-alpha04"
+        private const val version = "2.4.0-alpha08"
         const val navCompose = "androidx.navigation:navigation-compose:$version"
     }
 
@@ -94,11 +94,13 @@ object Libs {
     }
 
     object Accompanist {
-        private const val version = "0.17.0"
+        private const val version = "0.18.0"
         const val systemUiController =
             "com.google.accompanist:accompanist-systemuicontroller:$version"
         const val placeholderMaterial= "com.google.accompanist:accompanist-placeholder-material:$version"
         const val insets = "com.google.accompanist:accompanist-insets:$version"
+        const val navigationAnimation = "com.google.accompanist:accompanist-navigation-animation:$version"
+        const val navigationCore = "com.google.accompanist.navigation.animation.navigation:$version"
     }
 
 }

@@ -1,19 +1,22 @@
 package com.drawiin.comiclover.app.ui
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.rememberNavController
 import com.drawiin.common_ui.theme.ComicLoverTheme
 import com.drawiin.core.arch.NavigationRoute
 import com.drawiin.feature_main.addMainNavGraph
 import com.google.accompanist.insets.ProvideWindowInsets
+import com.google.accompanist.navigation.animation.AnimatedNavHost
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 
+
+@ExperimentalAnimationApi
 @Composable
 fun ComicLoverApp() {
-    val navController = rememberNavController()
+    val navController = rememberAnimatedNavController()
     ComicLoverTheme {
         ProvideWindowInsets {
-            NavHost(
+            AnimatedNavHost(
                 navController = navController,
                 startDestination = AppRoutes.Main.routeName
             ) {
@@ -23,6 +26,6 @@ fun ComicLoverApp() {
     }
 }
 
-sealed class AppRoutes(override val routeName: String): NavigationRoute {
+sealed class AppRoutes(override val routeName: String) : NavigationRoute {
     object Main : AppRoutes("main")
 }

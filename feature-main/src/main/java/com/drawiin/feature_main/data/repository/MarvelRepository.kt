@@ -2,7 +2,7 @@ package com.drawiin.feature_main.data.repository
 
 import com.drawiin.core.arch.Either
 import com.drawiin.core.error.Failure
-import com.drawiin.comiclover.features.main.data.dto.AllCharactersDto
+import com.drawiin.feature_main.data.dto.AllCharactersDto
 import com.drawiin.feature_main.data.service.MarvelService
 import com.drawiin.network.util.error.NetworkHandler
 import com.drawiin.network.util.extensions.toCustomExceptions

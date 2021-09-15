@@ -21,10 +21,7 @@ import com.drawiin.common_ui.theme.Padding
 import com.drawiin.feature_main.R
 
 @Composable
-fun AppBar(
-    onLeadingClicked: () -> Unit,
-    onLeaTrailingClicked: () -> Unit
-) {
+fun AppBar() {
     Row(
         modifier = Modifier
             .background(color = MaterialTheme.colors.surface)
@@ -63,6 +60,6 @@ fun AppBar(
 @Preview
 fun Preview() {
     ComicLoverTheme() {
-        AppBar({}, {})
+        AppBar()
     }
 }
