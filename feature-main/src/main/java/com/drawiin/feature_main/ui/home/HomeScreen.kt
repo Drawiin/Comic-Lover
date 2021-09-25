@@ -35,14 +35,16 @@ fun HomeScreen(viewModel: HomeViewModel, navToCharacterDetails: (Character) -> U
         color = Color.Transparent
         darkIcons = true
     }
-
     val homeState: HomeState by viewModel.homeState.collectAsState()
+    HomeContent(homeState = homeState, navToCharacterDetails = navToCharacterDetails)
+}
 
+@Composable
+fun HomeContent(homeState: HomeState, navToCharacterDetails: (Character) -> Unit) {
     Scaffold(
         modifier = Modifier
             .background(MaterialTheme.colors.surface)
             .statusBarsPadding(),
-        /*.systemBarsPadding()*/
         topBar = {
             AppBar()
         },
@@ -51,11 +53,11 @@ fun HomeScreen(viewModel: HomeViewModel, navToCharacterDetails: (Character) -> U
             Modifier
                 .fillMaxSize()
                 .padding(contentPadding)) {
-            when (val state = homeState) {
-                is HomeState.Error -> DefaultErrorMessage(message = state.message)
+            when (homeState) {
+                is HomeState.Error -> DefaultErrorMessage(message = homeState.message)
                 is HomeState.Loading -> HomeLoading()
                 is HomeState.Success -> HomeSuccess(
-                    state = state,
+                    state = homeState,
                     onCharacterClicked = navToCharacterDetails
                 )
             }

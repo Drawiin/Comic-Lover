@@ -4,7 +4,18 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -24,12 +35,19 @@ import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import com.drawiin.comiclover.features.main.composables.Abilities
 import com.drawiin.comiclover.features.main.composables.Characteristics
-import com.drawiin.feature_main.data.dto.Character
 import com.drawiin.common_ui.composables.NetworkImage
-import com.drawiin.common_ui.theme.*
+import com.drawiin.common_ui.theme.ComicLoverTheme
+import com.drawiin.common_ui.theme.GradientBlack
+import com.drawiin.common_ui.theme.Height
+import com.drawiin.common_ui.theme.Padding
+import com.drawiin.common_ui.theme.PrimaryBlack
+import com.drawiin.common_ui.theme.PrimaryWhite
+import com.drawiin.common_ui.theme.Spacing
+import com.drawiin.common_ui.theme.Width
 import com.drawiin.core.constants.BASE_RESOURCE_URL
 import com.drawiin.feature_main.R
 import com.drawiin.feature_main.core.composables.TransparentAppBar
+import com.drawiin.feature_main.data.dto.Character
 import com.drawiin.feature_main.util.SetStatusBarConfig
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
@@ -45,6 +63,15 @@ fun CharacterScreen(
         color = Color.Transparent
         darkIcons = false
     }
+    CharacterContent(character = character, onBack = onBack)
+}
+
+@ExperimentalCoilApi
+@Composable
+fun CharacterContent(
+    character: Character,
+    onBack: () -> Unit
+) {
     val scrollState = rememberScrollState()
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
